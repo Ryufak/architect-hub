@@ -9,9 +9,11 @@
 //___________________________________________________________________
 $blue-deep: #063166;
 $blue-mono: #3D4B5B;
+$blue-highlight: #637b96;
 $red-active: #df2c1c;
 $red-deep: #f04d3e;
 $red-mono: #B7615A;
+$red-highlight: #c05048;
 $dark-mono: #313131;
 $dark: #1b1b1b;
 $gray : #dddddd;
@@ -85,6 +87,9 @@ section {
 .en {font-family: 'poppins', sans-serif;}
 .bg {font-family: 'Roboto', sans-serif;}
 
-
-
+//___________________________________________________________________
+//Navigation
+$nav-height: 60px;
+$logo-width: 20%;
+$hamburger-width: 20%;
 

@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
+from main.utilities import simple_uuid
 
 class CustomUserManager(BaseUserManager):
 
     #If you have any other REQUIRED_FIELDS, be sure to put them in as callable arguments
-    def create_user(self, email, username, password=None):
+    def create_user(self, email, username, password):
         if not email:
             raise ValueError("This field is required!")
         if not username:
@@ -29,14 +29,17 @@ class CustomUserManager(BaseUserManager):
         user.is_staff       = True
         user.is_superuser   = True
         user.is_active      = True
+        user.is_validated   = True
         
         user.save(using=self._db)
         return user
 
 
+
+
 class CustomUser(AbstractBaseUser):
 
-    #These are required
+    # These are required
     email               = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username            = models.CharField(max_length=30, unique=True)
     date_joined         = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
@@ -46,15 +49,32 @@ class CustomUser(AbstractBaseUser):
     is_staff            = models.BooleanField(default=False)
     is_superuser        = models.BooleanField(default=False)
 
-    #Custom fields go here
+    # Activation and Validation
+    activation_key      = models.CharField(default=simple_uuid, max_length=36)
+    is_validated        = models.BooleanField(default=False)
+    
+    # Other
+    COUNTRY = (
+        ('Bulgaria', 'Bulgaria'), 
+        ('USA', 'USA'), 
+        ('Russia', 'Russia'), 
+        ('Vatican', 'The Vatican'))
+
+    first_name          = models.TextField(max_length=20, verbose_name='First name')
+    last_name           = models.TextField(max_length=20, verbose_name='Last name')
+    country             = models.CharField(max_length=20, choices=COUNTRY, default=COUNTRY[0])
+    city                = models.TextField(max_length=30)
+    about               = models.CharField(max_length=600)
+    certification       = models.URLField()
 
 
-    #Sets what field is required to log in (default is username)
+
+
     USERNAME_FIELD = 'email'
     #Lists which fields are required when creating a user
     REQUIRED_FIELDS = ['username',]
-    #Referencing the Manager
-    objects = CustomUserManager
+
+    objects = CustomUserManager()
 
     #Displays returned value when you print a CustomUser object
     def __str__(self):
@@ -63,8 +83,9 @@ class CustomUser(AbstractBaseUser):
     #Required functions
     def has_perm(self, perm, obj=None):
         return self.is_admin
-    def has_module_perm(self, app_label):
+    def has_module_perms(self, app_label):
         return True
+    
 
 
 

@@ -13,7 +13,13 @@ from main import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.placeholder_function, name='home'), #delete me
+    path('', views.view_home, name='home'),
+    path('about', views.view_about, name='about'),
+    path('architects', views.view_architects, name='architects'),
+    path('upload', views.view_upload_project, name='upload_project'),
+    
+
+
 
 ]
 

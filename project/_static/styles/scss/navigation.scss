@@ -1,0 +1,191 @@
+@import "global";
+
+@media screen and (min-width: 450px) {.hamburger {display: none !important;}}
+.hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $hamburger-width;
+    height: calc(#{$nav-height} - 10px);
+    margin: 5px 0;
+    margin-left: calc(100% - (#{$logo-width} + #{$hamburger-width}));
+    & * {margin-left: unset;}
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    & .hamburger-button {
+        position: relative;
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        transition: all .5s ease-in-out;}
+    & .hamburger-button::before, & .hamburger-button::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        transition: all .5s ease-in-out;}
+    & .hamburger-button::before {transform: translateY(-13px);}
+    & .hamburger-button::after {transform: translateY(3px);}
+    &.active .hamburger-button {
+        transition: .5s;
+        background-color: transparent;}
+    &.active .hamburger-button::before {transform: rotate(45deg) translate(-5px, -5px);}
+    &.active .hamburger-button::after {transform: rotate(-45deg) translate(5px, -5px);}}
+
+.nav-block {height: $nav-height}
+nav {
+    @media screen and (min-width: 450px) {border-bottom: 1px solid $dark-mono;}
+    @include not-selectable();
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    height: $nav-height;
+    width: 100vw;
+    @include flexbox();
+    flex-direction: row;
+    @media screen and (max-width: 450px) {background-color: $dark;}
+    @media screen and (min-width: 450px) {background-color: white;}
+    
+    & .logo {
+        width: $logo-width;
+        height: 100%;
+        & svg {
+            height: 100%;
+            width: auto;
+            padding: 5px;}
+        & .str0 {
+            @media screen and (max-width: 450px) {stroke:white;}
+            @media screen and (min-width: 450px) {stroke:$red-deep;}
+            stroke-width:3;
+            stroke-miterlimit:22.9256}
+        & .fil2 {
+            fill:none}
+        & .fil0 {
+            @media screen and (max-width: 450px) {fill:$red-deep;}
+            @media screen and (min-width: 450px) {fill:$dark;}
+            fill-rule:nonzero}
+        & .fil1 {
+            @media screen and (max-width: 450px) {fill:white;}
+            @media screen and (min-width: 450px) {fill:$dark;}
+            fill-rule:nonzero}}
+    & .menu { //Item order
+        @media screen and (max-width: 450px) {
+            & #link-home {order: 3;}
+            & #link-about {order: 4;}
+            & #link-language {order: 5;}
+            & #link-login {order: 2;}
+            & #link-logout {order: 2;}
+            & #link-account {order: 1;}}
+        @media screen and (min-width: 450px) {
+            & #link-home {order: 1;}
+            & #link-about {order: 2;}
+            & #link-language {order: 3;}
+            & #link-login {order: 4;}
+            & #link-logout {order: 5;}
+            & #link-account {order: 4;}}}
+    & .menu {
+        @include flexbox();
+        @media screen and (max-width: 450px) {
+            border-top: 2px solid black;
+            width: 100vw;
+            height: calc(100vh - #{$nav-height});
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: $nav-height;
+            background-color: $dark;
+            padding-top: 3vh;
+            transition: 1s;
+            margin-left: 100vw;
+            &.active {margin-left: 0;}
+            & * {padding: unset; margin: unset;}}
+        @media screen and (min-width: 450px) {
+            width: calc(100% - #{$logo-width});
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 40px;
+            & * {padding: unset;}}
+        
+        & .link {
+            @include flexbox();
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            @media screen and (max-width: 450px) {
+                height: 50px;
+                width: 100vw;
+                border-bottom: 2px solid $dark-mono;}
+            @media screen and (min-width: 450px) {
+                height: 100%;
+                margin: 0 20px;
+                & * {margin: unset}}
+            position: relative;
+            & a { //Some text styling
+                @media screen and (max-width: 450px) {
+                    color: white;
+                    @include f12();}
+                @media screen and (min-width: 450px) {
+                    color: $dark;
+                    @include f16();}
+                @media screen and (min-width: 1050px) {
+                    transition: .5s;
+                    color: $dark-mono;
+                    &:hover {color: $dark;}
+                    @include f12();}
+                font-weight: 600;}
+            & a {
+                @include flexbox();
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;}
+            & .dropdown {
+                @include flexbox();
+                flex-direction: column;
+                transition: .5s;
+                transform: scaleY(0);
+                transform-origin: 0 0;
+                &.active {transform: scaleY(1);}
+                position: absolute;
+                width: 100%;
+                @media screen and (max-width: 450px) {
+                    top: 50px;
+                    background-color: $dark-mono;}
+                @media screen and (min-width: 450px) {
+                    top: $nav-height;
+                    background-color: white;}
+                & a {
+                    height: 50px;
+                    @media screen and (max-width: 450px) {
+                        border-bottom: 2px solid $dark;
+                        @include f12();}
+                    @media screen and (min-width: 450px) {
+                        border-bottom: 2px solid $gray;}}}}
+    }
+
+    & #link-account {
+        @media screen and (min-width: 450px) {display: none !important;}}
+    & #link-login {
+        @media screen and (min-width: 450px) {
+            transition: .5s;
+            background-color: $red-deep;
+            &:hover {background-color: $red-active;}
+            padding: 0 10px;
+            height: 60%;}
+        @media screen and (min-width: 1050px) {padding: 0 20px;}}
+    & #link-logout {
+        @media screen and (min-width: 450px) {
+            transition: .5s;
+            border: 2px solid $red-deep;
+            &:hover {
+                border: 2px solid white;
+                background-color: $red-deep;}
+            &:hover a {color: white;}
+            padding: 0 10px;
+            height: 60%;
+            @media screen and (min-width: 1050px) {padding: 0 20px;}}}
+    
+}
+

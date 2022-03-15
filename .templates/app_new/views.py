@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
 import os
-from main.utilities import (
-    placeholder,
-    placeholder2,
-)
+
 
 #delete me
 def placeholder_function(request):

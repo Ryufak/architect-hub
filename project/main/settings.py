@@ -29,6 +29,9 @@ template_dirs_list = [
 
 ]
 
+# Email settings:
+email_username = ''
+email_password = ''
 
 #----------------------------------------------------
 # These are for local testing.
@@ -119,13 +122,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'EET'
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files
 STATICFILES_DIRS += (
@@ -140,4 +139,10 @@ STATIC_URL = 'static/'
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# Email functionality
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = email_username
+EMAIL_HOST_PASSWORD = email_password

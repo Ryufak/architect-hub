@@ -1,0 +1,53 @@
+{% extends 'BASE.html' %}
+{% load static %}
+
+{% block title %}
+<title>About us</title>
+{% endblock title %}
+
+
+{% block description %}
+<meta name="description" content="Description">
+{% endblock description %}
+
+
+{% block addons %}
+<!--Stylesheet AND script links-->
+<script src="{% static 'script.js' %}" async defer></script>
+<link rel="stylesheet" href="{% static 'about.css' %}">
+{% endblock addons %}
+
+{% block content %}
+<section class="en">
+    <h1 class="header">About us</h1>
+    <p class="description">Aenean eu purus sem. Vestibulum 
+        finibus iaculis bibendum. Integer nec diam dignissim, tincidunt enim in, efficitur 
+        magna. Nullam commodo congue tortor, in posuere justo lacinia ac. Duis fermentum velit 
+        tellus, at semper nibh cursus sed. <br>
+        Cras convallis dignissim quam, nec vehicula urna. Suspendisse mattis leo mi, at auctor 
+        diam placerat et. Etiam ornare egestas ornare. Duis vel sem vehicula, mattis diam 
+        imperdiet, hendrerit sapien. Nunc eu velit id lacus aliquet suscipit id at erat.
+    </p>`
+
+    <div class="cool_wrapper">
+        <div class="wrapper" id="wrapper_vision">
+            <div class="image">
+                <img src="{% static 'about_people.png' %}" alt="people">
+            </div>
+            <h2 class="subheader">Our Vision</h2>
+            <p class="vm_paragraph">Donec varius, felis ut aliquet varius, ex nisi auctor sem, eget elementum ipsum lorem id velit. Suspendisse sodales nisi in felis fringilla, id imperdiet nisi mattis. Suspendisse sed libero egestas, ullamcorper turpis non, venenatis augue.</p>
+        </div>
+
+        <div class="wrapper" id="wrapper_mission">
+            <div class="image">
+                <img src="{% static 'about_briefcase.png'%}" alt="briefcase">
+            </div>
+            <h2 class="subheader">Our Mission</h2>
+            <p class="vm_paragraph">Donec erat metus, ornare in nibh ut, congue vestibulum urna. Quisque tincidunt arcu eu sapien feugiat maximus. Cras vitae cursus justo. Fusce consectetur tellus a est laoreet eleifend. </p>
+        </div>
+    </div>
+    
+
+
+</section>
+{% endblock %}

@@ -8,7 +8,7 @@ class AccountAdmin(UserAdmin):
     #Shows which fields can be searched
     search_fields = ('email', 'username')
     #Doesn't let you change those fields
-    readonly_fields = ('date_joined', 'last_login', 'is_superuser')
+    readonly_fields = ('date_joined', 'last_login', 'is_superuser', 'is_superuser')
 
     filter_horizontal = ()
     list_filter = ()

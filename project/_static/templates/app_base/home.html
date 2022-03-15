@@ -2,16 +2,42 @@
 {% load static %}
 
 {% block title %}
-<title><!--Insert title of page here--> title</title>
+<title>Welcome to Architect Hub</title>
 {% endblock title %}
 
 
 {% block description %}
-<title><!--Insert title of page here-->description</title>
+<meta name="description" content="Description of page">
 {% endblock description %}
 
 
+{% block addons %}
+<script src="{% static 'home.js' %}" async defer></script>
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock addons %}
+
 {% block content %}
-<!-- (body) Content goes here-->
-<p>inserted content</p>
+<section id="hero-image" class="en">
+    <div class="hero-split" id="hero-split-left">
+        <div class="hero-image" id="image-left">
+            <img src="{% static 'hero-Hire.png '%}" alt="Image">
+        </div>
+        <div class="text-field" id="text-field-left">
+            <h1>Hire a Pro</h1>
+            <p>Don't know where to start? Find the perfect Architect for your needs.</p>
+            <a href="{% url 'architects' %}">Hire</a>
+        </div>
+    </div>
+
+    <div class="hero-split" id="hero-split-right">
+        <div class="hero-image" id="image-right">
+            <img src="{% static 'hero-Post.png '%}" alt="Image">
+        </div>
+        <div class="text-field" id="text-field-right">
+            <h1>Post your work</h1>
+            <p>Show off your design skills and find customers.</p>
+            <a href="{% url 'upload_project' %}">Post</a>
+        </div>
+    </div>
+</section>
 {% endblock %}

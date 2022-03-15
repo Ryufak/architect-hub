@@ -1,16 +1,18 @@
 from django.shortcuts import (render, redirect)
 import os
-from main.utilities import (
-    placeholder,
-    placeholder2,
-)
 
-#delete me
-def placeholder_function(request):
-    test = 0
-    context = {
-        'var_name': test
-    }
-    #In the .html file use  {{ var_name }}
 
-    return render(request, 'home.html', context)
+
+def view_home(request):
+    return render(request, 'home.html')
+
+def view_about(request):
+    return render(request, 'about.html')
+
+def view_architects(request):
+    #build
+    pass
+
+def view_upload_project(request):
+    pass
+    #build

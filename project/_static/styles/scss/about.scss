@@ -1,0 +1,66 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+
+@import "global";
+
+section {
+    width: 100vw;
+    flex-direction: column;
+    text-align: center;
+    color: $dark;
+    & .description {font-weight: 500}
+    & .cool_wrapper {
+        @include flexbox();
+        flex-direction: row;
+        @media screen and (max-width: 450px) {flex-direction: column;}
+        & .wrapper {   
+            @media screen and (max-width: 450px) {
+                padding: 20px 0;}
+            @media screen and (min-width: 450px) {
+                width: 50%;
+                padding-top: 25px;
+                &#wrapper_vision {padding-right: 25px;}
+                &#wrapper_mission {padding-left: 25px;}}
+            & * {padding: unset;}
+            @include flexbox();
+            flex-direction: column;}
+        & .image img {
+            height: 100%;
+            width: auto;}
+        & .subheader {padding: 10px 0;}
+        & .vm_paragraph {font-weight: 500;}}
+
+@media screen and (max-width: 450px) {
+    padding: 0 8vw;
+    & * {padding: unset;}
+    & .header {
+        font-size: 10vw;
+        padding: 2vh 0;}
+    & .description {font-size: 5vw;}
+    & .image {height: 10vh;}
+    & .subheader {font-size: 6vw;}
+    & .vm_paragraph {font-size: 4.5vw;}}
+@media screen and (min-width: 450px) {
+    padding: 0 15vw;
+    & * {padding: unset;}
+    & .header {
+        font-size: 5vw;
+        padding: 2vh 0;}
+    & .description {font-size: 3vw;}
+    & .image {height: 7vh;}
+    & .subheader {font-size: 3vw;}
+    & .vm_paragraph {font-size: 2.5vw;}}
+@media screen and (min-width: 1050px) {
+    padding: 0 25vw;
+    & * {padding: unset;}
+    & .header {
+        @include f24();
+        padding: 20px 0;}
+    & .description {@include f16(); font-weight: 400;}
+    & .image {height: 10vh;}
+    & .subheader {@include f16();}
+    & .vm_paragraph {@include f12();}}
+}

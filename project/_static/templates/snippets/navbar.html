@@ -1,1 +1,69 @@
-<h1>I am a navbar</h1>
+<div class="nav-block"></div>
+        <nav class="en">
+
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="250px" height="400px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                        viewBox="0 0 250 400"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Layer_x0020_1">
+                        <metadata id="CorelCorpID_0Corel-Layer"/>
+                        <path class="fil0" d="M79.75 310.47l0 83.47 -26.46 0 0 -32.54 -25.14 0 0 32.54 -26.46 0 0 -83.47 26.46 0 0 30.06 25.14 0 0 -30.06 26.46 0zm37.78 0l0 47.04c0,3.85 0.85,6.9 2.56,9.14 1.71,2.24 4.47,3.36 8.29,3.36 3.81,0 6.63,-1.12 8.46,-3.36 1.82,-2.24 2.74,-5.29 2.74,-9.14l0 -47.04 26.34 0 0 47.04c0,7.94 -1.67,14.72 -5.01,20.34 -3.33,5.62 -7.9,9.85 -13.7,12.68 -5.8,2.83 -12.28,4.24 -19.43,4.24 -7.15,0 -13.49,-1.41 -19.01,-4.24 -5.52,-2.83 -9.83,-7.04 -12.93,-12.62 -3.1,-5.58 -4.65,-12.38 -4.65,-20.4l0 -47.04 26.34 0zm116.32 40.68c5.08,1.18 9.04,3.59 11.86,7.25 2.82,3.65 4.23,7.88 4.23,12.67 0,7.31 -2.44,12.95 -7.33,16.92 -4.89,3.97 -11.9,5.95 -21.04,5.95l-44.21 0 0 -83.47 43.02 0c8.58,0 15.34,1.84 20.26,5.54 4.93,3.69 7.39,9.08 7.39,16.15 0,4.88 -1.29,8.98 -3.87,12.32 -2.58,3.35 -6.02,5.57 -10.31,6.67zm-30.03 -8.14l10.24 0c2.39,0 4.16,-0.47 5.31,-1.42 1.15,-0.94 1.73,-2.39 1.73,-4.36 0,-2.04 -0.58,-3.55 -1.73,-4.54 -1.15,-0.98 -2.92,-1.47 -5.31,-1.47l-10.24 0 0 11.79zm12.03 29.95c2.39,0 4.15,-0.45 5.31,-1.36 1.15,-0.9 1.73,-2.38 1.73,-4.42 0,-4.01 -2.35,-6.01 -7.04,-6.01l-12.03 0 0 11.79 12.03 0z"/>
+                        <g><path class="fil1" d="M1.62 298.16l-2.1 0 0 -21.92 4.2 0 0 21.92 -2.1 0zm242.37 -8.96l-242.37 0 0 -4 242.37 0 0 4zm0 8.96l-2.1 0 0 -21.92 4.2 0 0 21.92 -2.1 0z"/></g><g>
+                        <line class="fil2 str0" x1="121.74" y1="7.11" x2="103.4" y2= "7.11" />
+                        <line class="fil2 str0" x1="121.74" y1="5.23" x2="121.68" y2= "32.42" />
+                        <line class="fil2 str0" x1="121.81" y1="32.85" x2="38.86" y2= "268.36" />
+                        <line class="fil2 str0" x1="104.64" y1="6.35" x2="3.3" y2= "268.36" />
+                        <line class="fil2 str0" x1="27.12" y1="162.19" x2="126.8" y2= "162.19" />
+                        <line class="fil2 str0" x1="127.06" y1="186.73" x2="18.01" y2= "186.73" />
+                        <line class="fil2 str0" x1="0" y1="260.82" x2="45.43" y2= "260.82" />
+                        <line class="fil2 str0" x1="3.8" y1="253.28" x2="49.23" y2= "253.28" />
+                        <line class="fil2 str0" x1="15.72" y1="173.5" x2="126.31" y2= "173.5" />
+                        <line class="fil2 str0" x1="115.09" y1="8" x2="20.31" y2= "268.91" />
+                        </g><g><path id="A" class="fil0" d="M245.24 268.36l-105.28 -263.13 -18.98 0 -0.06 27.3 0 0.32 0.13 -0.43c3.77,17.15 8.82,34 15.14,50.66l30.09 77.23 -46.6 0 -0.27 28.3 57.54 0 29.77 79.75 38.52 0zm-124.32 -235.51l0 -0.32 0 0.32z"/></g></g>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="menu" id="menu">
+
+                <div class="link" id="link-home">
+                    <a href="{% url 'home' %}">Home</a>
+                </div>
+
+                <div class="link" id="link-about">
+                    <a href="{% url 'about' %}">About</a>
+                </div>
+
+                <!--    Dropdown for languages
+                <div class="link" id="link-language">
+                    <a id="lang-drop">Language</a>
+                    <div class="dropdown" id="lang-dd">
+                        <a href="">English</a>
+                        <a href="">Bulgarian</a>
+                    </div>
+                </div>
+                -->
+
+                <div class="link" id="link-login">
+                    <a href="">Log in</a>
+                </div>
+
+                <!--
+                    <div class="link" id="link-logout">
+                    <a onclick="logout_submit()">Log out</a>
+                    <form id="logout_submit_form" class="hide" action="{% url 'home' %}" method="post"> {% csrf_token %} </form>
+                </div>
+            -->
+
+                <div class="link" id="link-account">
+                    <a href="">Hello, Ajibah</a>
+                </div>
+                        
+
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <div class="hamburger-button"></div>
+            </div>
+        </nav>

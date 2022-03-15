@@ -1,0 +1,136 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+
+@import "global";
+$hero-height: calc(100vh - #{$nav-height});
+
+#hero-image {
+    height: $hero-height;
+    width: 100vw;
+    overflow: hidden !important;
+    flex-wrap: wrap;
+
+    & .hero-split {
+        @include flexbox();
+        position: static;
+        overflow: hidden;
+        transition: 1s;
+        @media screen and (max-width: 1050px) {
+            flex-direction: column;
+            width: 100%;
+            height: 50%;
+            &#hero-split-left {margin-left: -100vw;}
+            &#hero-split-right {margin-left: 100vw;}}
+        @media screen and (min-width: 1050px) {
+            flex-direction: row;
+            width: 50%;
+            height: 100%;
+            &#hero-split-left {margin-top: -100vh;}
+            &#hero-split-right {margin-top: 100vh;}}
+        &#hero-split-left {background-color: $blue-mono;}
+        &#hero-split-right {background-color: $red-mono;}
+        &#hero-split-left, &#hero-split-right {&.active{margin: 0;}}
+        & * {margin: unset; padding: unset;}
+
+        & .hero-image {
+            position: relative;
+            z-index: 1;
+            @media screen and (max-width: 450px) {
+                height: 85%;
+                top: 15%;
+                &#image-left {left: -20%;}
+                &#image-right {left: 45%;}}
+            @media screen and (min-width: 450px) {
+                height: 80%;
+                top: 20%;
+                &#image-left {left: 4%;}
+                &#image-right {left: 50%;}}
+            @media screen and (min-width: 1050px) {
+                height: 75%;
+                top: 25%;
+                &#image-left {left: -10%;}
+                &#image-right {left: 50%;}}
+            & img {
+                height: 100%;
+                width: auto;}}
+        & .text-field {
+            //position: relative;
+            position: absolute;
+            @include flexbox();
+            justify-content: center;
+            flex-direction: column;
+            z-index: 2;
+            
+            @media screen and (max-width: 450px) {
+                height: calc(#{$hero-height} / 2);
+                width: 65%;
+                &#text-field-left {margin-left: 35%;}
+                padding: 0 4vw;
+                & * {margin: 1vh 0;}
+                & h1 {
+                    font-size: 8vw;}
+                & p {
+                    font-size: 5vw; 
+                    font-weight: 600;}
+                & a {
+                    width: 25vw;
+                    padding: 1vw;
+                    font-size: 6vw;}}
+            @media screen and (min-width: 450px) {
+                height: calc(#{$hero-height} / 2);
+                width: 55%;
+                &#text-field-left {margin-left: 45%;}
+                padding: 0 2vw;
+                & * {margin: 1vh 0;}
+                & h1 {
+                    font-size: 5.5vw;}
+                & p {
+                    font-size: 3vw; 
+                    font-weight: 600;}
+                & a {
+                    width: 20vw;
+                    padding: 1vw;
+                    font-size: 4vw;}}
+            @media screen and (min-width: 1050px) {
+                height: $hero-height;
+                width: 25%;
+                &#text-field-left {margin-left: 25%;}
+                padding: 0 1vw;
+                & * {margin: 20px 0;}
+                & h1 {
+                    @include f28();}
+                & p {
+                    @include f16();
+                    font-weight: 600;}
+                & a {
+                    width: 180px;
+                    padding: 10px;
+                    @include f20();}}
+            & a {
+                transition: .5s;
+                font-weight: 600;
+                text-align: center;}
+            &#text-field-left {
+                color: white;
+                & a {
+                    border: 3px solid white;
+                    color: white;
+                    &:hover {background-color: $blue-highlight;}}}
+            &#text-field-right {
+                color: $dark;
+                & a {
+                    //width: 100px;
+                    border: 3px solid $dark;
+                    color: $dark;
+                    &:hover {background-color: $red-highlight;}}}
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}

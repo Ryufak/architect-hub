@@ -13,10 +13,11 @@
 
         <script src="{% static 'jquery.js' %}" async defer></script>
         <script src="{% static 'navigation.js' %}" async defer></script>
+        <link rel="stylesheet" href="{% static 'navigation.css' %}">
         {% block addons %}   {% endblock addons %}   
     </head>
 
-    <body>
+    <body onload="page_load()">
         {% include 'navbar.html' %}
         
         {% block content %}

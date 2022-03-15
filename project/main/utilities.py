@@ -1,5 +1,5 @@
-#Placeholder (delete)
-def placeholder():
-    pass
-def placeholder2():
-    pass
+import uuid
+
+
+def simple_uuid():
+    return uuid.uuid1().hex
