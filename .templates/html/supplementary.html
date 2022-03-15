@@ -1,0 +1,24 @@
+{% extends 'BASE.html' %}
+{% load static %}
+
+{% block title %}
+<title><!--Insert title of page here--></title>
+{% endblock title %}
+
+
+{% block description %}
+<!--Insert description of page here (in content)-->
+<meta name="description" content="">
+{% endblock description %}
+
+
+{% block addons %}
+<!--Stylesheet AND script links-->
+<script src="{% static 'script.js' %}" async defer></script>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock addons %}
+
+{% block content %}
+<!-- (body) Content goes here-->
+<p>inserted content</p>
+{% endblock %}
