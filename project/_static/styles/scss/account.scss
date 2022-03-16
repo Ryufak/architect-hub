@@ -1,0 +1,120 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+
+@import "global";
+
+$section-height: calc(100vh - #{$nav-height});
+$text-color: $dark;
+$text-color-inactive: green;
+$text-color-active: green;
+
+$form-color: #adc3eb;
+$input-light: #95add8;
+$input-normal: #7992c2;
+$input-dark: #476fb9;
+$input-textcolor: #162b53;
+
+
+section {
+    height: $section-height;
+    width: 100vw;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    & .form {
+        background-color: $form-color;
+        @include flexbox();
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        @media screen and (max-width: 450px) {
+            width: 100%;
+            height: 100%;}
+        @media screen and (min-width: 450px) {
+            border: 2px solid $input-dark;
+            width: 60%;
+            height: 60%;}
+        @media screen and (min-width: 1050px) {
+            width: 350px;
+            height: 500px;}
+        & form {
+            @media screen and (max-width: 450px) {width: 80%;}
+            @media screen and (min-width: 450px) {width: 60%;}
+            @include flexbox();
+            flex-direction: column;
+            align-items: center;}
+        & .logo {
+            height: 12%;}
+        color: $text-color;
+        & h1 {
+            padding: 0 0 20px 0;
+            @media screen and (max-width: 450px) {font-size: 10vw;}
+            @media screen and (min-width: 450px) {font-size: 4vw;}
+            @media screen and (min-width: 1050px) {@include f20();}}
+        & .field-label {
+            font-weight: 600;
+            @media screen and (max-width: 450px) {font-size: 6vw;}
+            @media screen and (min-width: 450px) {font-size: 2.5vw;}
+            @media screen and (min-width: 1050px) {@include f12();}
+            width: 100%;
+            text-align: left;}
+        & input:not(.submit-button) {
+            width: 100%;
+            appearance: none;
+            caret-color: $input-dark;
+            padding-left: 5px;
+            transition: .5s;
+            outline-width: 0;
+            &:empty {
+                background-color: $input-light;}
+            &:focus, &:hover {
+                border: 2px solid $form-color;
+                background-color: $input-light;}
+            &:valid{
+                background-color: $form-color;}
+            margin: 5px 0 15px 0;
+            border: 2px solid $input-dark;
+            font-weight: 600;
+            color: $input-textcolor;
+            @media screen and (max-width: 450px) {
+                height: 40px;
+                font-size: 6vw;}
+            @media screen and (min-width: 450px) {
+                height: 30px;
+                font-size: 2.5vw;}
+            @media screen and (min-width: 1050px) {
+                @include f12();}}
+        & .error-message {
+            color: red;
+            @media screen and (max-width: 450px) {font-size: 4vw;}
+            @media screen and (min-width: 450px) {font-size: 2vw;}
+            @media screen and (min-width: 1050px) {@include f12();}}
+        & .submit-button {
+            font-weight: 600;
+            color: $dark;
+            cursor: pointer;
+            @media screen and (max-width: 450px) {font-size: 6vw;}
+            @media screen and (min-width: 450px) {font-size: 2.5vw;}
+            @media screen and (min-width: 1050px) {@include f12();}
+            background-color: transparent;
+            border: 2px solid $input-dark;
+            padding: 6px 0;
+            margin: 10px 0;
+            transition: .5s;
+            &:hover {background-color: $input-dark;}
+            width: 60%;}}}
+svg {height: 100%; width: auto; cursor: pointer;}
+#svg-logo-icon {
+    
+    & .str0 {stroke:#14171C;stroke-width:4;stroke-miterlimit:22.9256}
+    & .fil1 {fill:none}
+    & .fil0 {fill:#EB5A4F; transition: 1s;}
+    &:hover .fil0 {fill:$input-dark}
+    & .fil2 {fill:#14171C;fill-rule:nonzero}}
+
+
+

@@ -1,0 +1,303 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,500&display=swap");
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  -o-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: inherit;
+  padding: inherit;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+em {
+  font-style: normal;
+}
+
+section {
+  -webkit-touch-callout: none;
+  user-select: none;
+  display: flex;
+}
+
+.hide {
+  display: none !important;
+}
+
+.en {
+  font-family: 'poppins', sans-serif;
+}
+
+.bg {
+  font-family: 'Roboto', sans-serif;
+}
+
+section {
+  height: calc(100vh - 60px);
+  width: 100vw;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+section .form {
+  background-color: #adc3eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #1b1b1b;
+}
+
+@media screen and (max-width: 450px) {
+  section .form {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .form {
+    border: 2px solid #476fb9;
+    width: 60%;
+    height: 60%;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .form {
+    width: 350px;
+    height: 500px;
+  }
+}
+
+section .form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  section .form form {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .form form {
+    width: 60%;
+  }
+}
+
+section .form .logo {
+  height: 12%;
+}
+
+section .form h1 {
+  padding: 0 0 20px 0;
+}
+
+@media screen and (max-width: 450px) {
+  section .form h1 {
+    font-size: 10vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .form h1 {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .form h1 {
+    font-size: 20pt;
+    line-height: 25pt;
+  }
+}
+
+section .form .field-label {
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+}
+
+@media screen and (max-width: 450px) {
+  section .form .field-label {
+    font-size: 6vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .form .field-label {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .form .field-label {
+    font-size: 12pt;
+    line-height: 15pt;
+  }
+}
+
+section .form input:not(.submit-button) {
+  width: 100%;
+  appearance: none;
+  caret-color: #476fb9;
+  padding-left: 5px;
+  transition: .5s;
+  outline-width: 0;
+  margin: 5px 0 15px 0;
+  border: 2px solid #476fb9;
+  font-weight: 600;
+  color: #162b53;
+}
+
+section .form input:not(.submit-button):empty {
+  background-color: #95add8;
+}
+
+section .form input:not(.submit-button):focus, section .form input:not(.submit-button):hover {
+  border: 2px solid #adc3eb;
+  background-color: #95add8;
+}
+
+section .form input:not(.submit-button):valid {
+  background-color: #adc3eb;
+}
+
+@media screen and (max-width: 450px) {
+  section .form input:not(.submit-button) {
+    height: 40px;
+    font-size: 6vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .form input:not(.submit-button) {
+    height: 30px;
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .form input:not(.submit-button) {
+    font-size: 12pt;
+    line-height: 15pt;
+  }
+}
+
+section .form .error-message {
+  color: red;
+}
+
+@media screen and (max-width: 450px) {
+  section .form .error-message {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .form .error-message {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .form .error-message {
+    font-size: 12pt;
+    line-height: 15pt;
+  }
+}
+
+section .form .submit-button {
+  font-weight: 600;
+  color: #1b1b1b;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #476fb9;
+  padding: 6px 0;
+  margin: 10px 0;
+  transition: .5s;
+  width: 60%;
+}
+
+@media screen and (max-width: 450px) {
+  section .form .submit-button {
+    font-size: 6vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .form .submit-button {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .form .submit-button {
+    font-size: 12pt;
+    line-height: 15pt;
+  }
+}
+
+section .form .submit-button:hover {
+  background-color: #476fb9;
+}
+
+svg {
+  height: 100%;
+  width: auto;
+  cursor: pointer;
+}
+
+#svg-logo-icon .str0 {
+  stroke: #14171C;
+  stroke-width: 4;
+  stroke-miterlimit: 22.9256;
+}
+
+#svg-logo-icon .fil1 {
+  fill: none;
+}
+
+#svg-logo-icon .fil0 {
+  fill: #EB5A4F;
+  transition: 1s;
+}
+
+#svg-logo-icon:hover .fil0 {
+  fill: #476fb9;
+}
+
+#svg-logo-icon .fil2 {
+  fill: #14171C;
+  fill-rule: nonzero;
+}
+/*# sourceMappingURL=account.css.map */

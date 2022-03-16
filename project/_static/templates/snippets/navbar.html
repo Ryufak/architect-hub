@@ -44,22 +44,21 @@
                     </div>
                 </div>
                 -->
-
-                <div class="link" id="link-login">
-                    <a href="">Log in</a>
-                </div>
-
-                <!--
+                
+                {% if request.user.is_authenticated %}
                     <div class="link" id="link-logout">
-                    <a onclick="logout_submit()">Log out</a>
-                    <form id="logout_submit_form" class="hide" action="{% url 'home' %}" method="post"> {% csrf_token %} </form>
-                </div>
-            -->
-
-                <div class="link" id="link-account">
-                    <a href="">Hello, Ajibah</a>
-                </div>
-                        
+                        <a onclick="logout_submit()">Log out</a>
+                        <form id="logout_submit_form" class="hide" action="{% url 'logout' %}" method="post"> {% csrf_token %} </form>
+                    </div>
+                            
+                    <div class="link" id="link-account">
+                        <a href="{% url 'dashboard' %}">Dashboard</a>
+                    </div>
+                {% else %}
+                    <div class="link" id="link-login">
+                        <a href="{% url 'login' %}">Log in</a>
+                    </div>
+                {% endif %}
 
             </div>
 

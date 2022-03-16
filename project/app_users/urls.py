@@ -13,6 +13,11 @@ from main import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.placeholder_function, name='home'), #delete me
+    path('account/register', views.view_register, name='register'),
+    path('account/login', views.view_login, name='login'),
+    path('account/logout', views.view_logout, name='logout'),
+    path('dashboard', views.view_dashboard, name='dashboard'),
+
+
 
 ]

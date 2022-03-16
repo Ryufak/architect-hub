@@ -1,0 +1,57 @@
+{% extends 'BASE.html' %}
+{% load static %}
+
+{% block title %}
+<title>Register</title>
+{% endblock title %}
+
+
+{% block description %}
+<meta name="description" content="Description">
+{% endblock description %}
+
+
+{% block addons %}
+<script src="{% static 'account-register.js' %}" async defer></script>
+<link rel="stylesheet" href="{% static 'account.css' %}">
+{% endblock addons %}
+
+{% block content %}
+<section class="en">
+    <div class="form">
+        <div class="logo">
+            <svg id="svg-logo-icon" 
+                xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="400px" height="400px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                viewBox="0 0 400 400"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Layer_x0020_1">
+                <metadata id="CorelCorpID_0Corel-Layer"/>
+                <circle class="fil0" cx="200" cy="200" r="180"/>
+                <g id="_2122390332080">
+                <line class="fil1 str0" x1="201.76" y1="11.22" x2="175.27" y2= "11.22" />
+                <line class="fil1 str0" x1="201.76" y1="8.48" x2="201.66" y2= "48.07" />
+                <line class="fil1 str0" x1="201.85" y1="48.7" x2="82.07" y2= "391.6" />
+                <line class="fil1 str0" x1="177.06" y1="10.11" x2="30.72" y2= "391.6" />
+                <line class="fil1 str0" x1="65.12" y1="237.03" x2="209.06" y2= "237.03" />
+                <line class="fil1 str0" x1="209.44" y1="272.75" x2="51.96" y2= "272.75" />
+                <line class="fil1 str0" x1="25.95" y1="380.63" x2="91.56" y2= "380.63" />
+                <line class="fil1 str0" x1="31.44" y1="369.65" x2="97.05" y2= "369.65" />
+                <line class="fil1 str0" x1="48.65" y1="253.49" x2="208.36" y2= "253.49" />
+                <line class="fil1 str0" x1="192.16" y1="12.51" x2="55.28" y2= "392.4" />
+                </g><g><path id="A" class="fil2" d="M374.05 391.6l-146.97 -383.12 -26.49 0 -0.09 39.75 0 0.47 0.18 -0.63c5.27,24.97 12.31,49.5 21.14,73.76l42 112.45 -65.05 0 -0.38 41.21 80.33 0 41.56 116.11 53.77 0zm-173.55 -342.9l0 -0.47 0 0.47z"/></g></g>
+            </svg>
+        </div>
+        <h1>Sign up</h1>
+        <form action="" method="post">  {% csrf_token %}
+            {% for field in registration_form %}
+                <p class="field-label">{{field.label_tag}}</p>
+                {{field}}
+                {% for error in field.errors %}
+                    <p class="error-message">{{error}}</p>
+                {% endfor %}
+            {% endfor %}
+            <input class="submit-button" type="submit" value="Register">
+        </form>
+    </div>
+</section>
+{% endblock %}
