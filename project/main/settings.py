@@ -33,6 +33,9 @@ template_dirs_list = [
 email_username = ''
 email_password = ''
 
+# Admin utils
+admin_email = ''
+
 #----------------------------------------------------
 # These are for local testing.
 # Can be expanded for production
@@ -129,11 +132,17 @@ USE_TZ = True
 # Static files
 STATICFILES_DIRS += (
     os.path.join(BASE_DIR, '_static/media'),
+    os.path.join(BASE_DIR, '_static/media/temp'),
     os.path.join(BASE_DIR, '_static/styles/css'),
     os.path.join(BASE_DIR, '_static/scripts'),
+    os.path.join(BASE_DIR, 'app_users/u/'),
     
 )
-STATIC_URL = 'static/'
+STATIC_URL = 'static/media/'
+STATIC_MEDIA_ROOT = os.path.join(BASE_DIR, '_static/media/')
+
+USER_MEDIA_URL = '/app_users/u/'
+USER_MEDIA_ROOT = os.path.join(BASE_DIR, 'app_users/u/')
 
 
 # Default primary key field type
@@ -144,5 +153,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = email_username
 EMAIL_HOST_USER = email_username
 EMAIL_HOST_PASSWORD = email_password

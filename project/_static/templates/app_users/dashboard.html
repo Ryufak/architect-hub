@@ -12,12 +12,102 @@
 
 
 {% block addons %}
-<!--Stylesheet AND script links-->
-<script src="{% static 'script.js' %}" async defer></script>
-<link rel="stylesheet" href="{% static 'style.css' %}">
+<script src="{% static 'dashboard.js' %}"></script>
+<link rel="stylesheet" href="{% static 'dashboard.css' %}">
 {% endblock addons %}
 
 {% block content %}
-<!-- (body) Content goes here-->
-<p>inserted content</p>
+
+
+<section class="en">
+
+<div class="header">
+    <div class="image cover-photo">
+        <img src="{{ user.image_cover }}?v={{ user.last_login }}" alt="Cover photo">
+    </div>
+    <div class="image profile-picture">
+        <img src="{{ user.image_profile }}?v={{ user.last_login }}" alt="Profile picture">
+    </div>
+    {% if user.first_name and user.last_name %}
+        <h1>{{ user.first_name}} {{user.last_name}}</h1>
+    {% else %}
+        <h1>User</h1>
+    {% endif %}
+</div>
+
+    
+<div class="block-container">
+    {% if not user.is_validated %}
+    <div class="block">
+        {% if user.pending_validation %}
+            <p class="validation-text" style="color: green;">Your validation form is being reviewed.</p>
+        {% else %}
+            <h1>Get validated</h1>
+            <p class="help-text">Get validated by completing your information!</p>
+            <a href="{% url 'validation' %}" class="button">Fill in form >></a>
+        {% endif %}
+    </div>
+    {% endif %}
+            
+    <div class="block">
+        <h1>Account credentials</h1>
+        <p class="help-text">Change username or email</p>
+        <a class="button" href="{% url 'credentials' %}">Change Credentials >></a>
+    </div>
+
+    {% if user.is_validated or user.pending_validation %}
+    <div class="block">
+        <h1>User info</h1>
+        <p class="help-text">Change and correct your personal information</p>
+        <a href="{% url 'update-profile' %}" class="button">Update profile >></a>
+    </div>
+    {% endif %}
+    
+    <div class="block">
+        <h1>Delete user</h1>
+        <p class="help-text">Deletes your account and projects you posted.</p>
+        <p class="help-text"><em>(This is irreversible.)</em></p>
+        <a href="{% url 'delete-account' %}" class="button">Delete account >></a>
+    </div>
+</div>
+
+
+<div class="projects">
+{% if user.is_validated %}
+    <div class="create"><a href="{% url 'post' %}">Post a project</a></div>
+    <div class="your-projects">
+        <!--Fill in-->
+    </div>
+{% else %}
+    {% if user.pending_validation %}
+        <p class="validation-text" style="color: green;">Your validation form is being reviewed.</p>
+    {%else%}
+        <p class="validation-text" style="color: red;">You need to be Validated to post a project.</p>
+        <a href="{% url 'validation' %}" class="button">Complete the form >></a>
+    {% endif %}
+{% endif %}
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+{% if request.user.is_validated %}
+    
+
+{% else %}
+    
+{% endif %}
+
+
+
+
+
+
+
 {% endblock %}

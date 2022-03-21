@@ -1,0 +1,1 @@
+This directory's sole purpose is to contain temp files.

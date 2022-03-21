@@ -88,11 +88,15 @@ section {
                 font-size: 2.5vw;}
             @media screen and (min-width: 1050px) {
                 @include f12();}}
-        & .error-message {
-            color: red;
+        & .error-message, &.confirmation-text {
             @media screen and (max-width: 450px) {font-size: 4vw;}
             @media screen and (min-width: 450px) {font-size: 2vw;}
             @media screen and (min-width: 1050px) {@include f12();}}
+        & .error-message {
+            color: red;}
+        & .confirmation-text {
+            font-weight: 500;
+            color: green;}
         & .submit-button {
             font-weight: 600;
             color: $dark;
@@ -106,7 +110,14 @@ section {
             margin: 10px 0;
             transition: .5s;
             &:hover {background-color: $input-dark;}
-            width: 60%;}}}
+            width: 60%;}}
+    & .go-to-registration {
+        margin-top: 20px;
+        & a {
+            font-weight: 600;
+            transition: .5s;
+            color: $red-deep;
+            &:hover {color: $red-active;}}}}
 svg {height: 100%; width: auto; cursor: pointer;}
 #svg-logo-icon {
     

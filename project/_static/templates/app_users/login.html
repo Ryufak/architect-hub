@@ -12,13 +12,14 @@
 
 
 {% block addons %}
+<script src="{% static 'account.js' %}"></script>
 <link rel="stylesheet" href="{% static 'account.css' %}">
 {% endblock addons %}
 
 {% block content %}
 <section class="en">
     <div class="form">
-        <div class="logo">
+        <div class="logo" onclick="clear_fields()">
             <svg id="svg-logo-icon" 
                 xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="400px" height="400px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                 viewBox="0 0 400 400"
@@ -55,8 +56,10 @@
                         <p>{{ login_form.non_field_errors }}</p>
                     </div>
                 {% endif%}
+            <input class="hide" id="reset" type="reset">
             <input class="submit-button" type="submit" value="Login">
         </form>
+        <p class="go-to-registration">Don't have an account?   <a href="{%url 'register' %}">Register</a></p>
 
 
     </div>

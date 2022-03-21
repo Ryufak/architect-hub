@@ -1,0 +1,55 @@
+{% extends 'BASE.html' %}
+{% load static %}
+
+
+{% block title %}
+<title>Activate</title>
+{% endblock title %}
+
+
+{% block description %}
+<meta name="description" content="Description">
+{% endblock description %}
+
+
+{% block addons %}
+<link rel="stylesheet" href="{% static 'forms.css' %}">
+{% endblock addons %}
+
+{% block content %}
+<section class="account-activation" class="en">
+    <h1>Activate your account!</h1>
+    <p>Welcome to Architect Hub. Blahblah flavourtext. We've sent an activation key to: <em class="email">{{user.email}}</em></p>
+    <p>Can't get a key? Contact us at: <em class="email">{{admin_email}}</em></p>
+
+
+    <form action="" method="post">  {% csrf_token %}
+        {% for field in form %}
+            <p class="field-label">{{field.label_tag}}</p>
+            {{field}}
+        {% endfor %}
+        {% if val_error %}
+            <p class="error">{{ val_error }}</p>
+        {% endif %}
+        <input class="submit-button" type="submit" value="Activate">
+    </form>
+
+
+    <p class="activation-help">
+    Still haven't received a key? <br>
+    Click <a target="_blank" href="{% url 'resend_key' %}">HERE</a> and we'll send another one!
+    </p>
+
+
+    
+        
+    
+
+    
+    
+
+
+</section>
+{% endblock %}
+
+

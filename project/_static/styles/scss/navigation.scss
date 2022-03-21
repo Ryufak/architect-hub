@@ -75,7 +75,7 @@ nav {
             & #link-about {order: 4;}
             & #link-language {order: 5;}
             & #link-login {order: 2;}
-            & #link-logout {order: 2;}
+            & #link-logout {order: 6;}
             & #link-account {order: 1;}}
         @media screen and (min-width: 450px) {
             & #link-home {order: 1;}
@@ -165,8 +165,7 @@ nav {
                         border-bottom: 2px solid $gray;}}}}
     }
 
-    & #link-account {
-        @media screen and (min-width: 450px) {display: none !important;}}
+    
     & #link-login {
         @media screen and (min-width: 450px) {
             transition: .5s;

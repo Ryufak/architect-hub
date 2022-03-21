@@ -223,7 +223,7 @@ nav .logo .fil1 {
     order: 2;
   }
   nav .menu #link-logout {
-    order: 2;
+    order: 6;
   }
   nav .menu #link-account {
     order: 1;
@@ -400,12 +400,6 @@ nav .menu .link .dropdown a {
 @media screen and (min-width: 450px) {
   nav .menu .link .dropdown a {
     border-bottom: 2px solid #dddddd;
-  }
-}
-
-@media screen and (min-width: 450px) {
-  nav #link-account {
-    display: none !important;
   }
 }
 

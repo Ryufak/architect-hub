@@ -213,27 +213,32 @@ section .form input:not(.submit-button):valid {
   }
 }
 
-section .form .error-message {
-  color: red;
-}
-
 @media screen and (max-width: 450px) {
-  section .form .error-message {
+  section .form .error-message, section .form.confirmation-text {
     font-size: 4vw;
   }
 }
 
 @media screen and (min-width: 450px) {
-  section .form .error-message {
+  section .form .error-message, section .form.confirmation-text {
     font-size: 2vw;
   }
 }
 
 @media screen and (min-width: 1050px) {
-  section .form .error-message {
+  section .form .error-message, section .form.confirmation-text {
     font-size: 12pt;
     line-height: 15pt;
   }
+}
+
+section .form .error-message {
+  color: red;
+}
+
+section .form .confirmation-text {
+  font-weight: 500;
+  color: green;
 }
 
 section .form .submit-button {
@@ -269,6 +274,20 @@ section .form .submit-button {
 
 section .form .submit-button:hover {
   background-color: #476fb9;
+}
+
+section .go-to-registration {
+  margin-top: 20px;
+}
+
+section .go-to-registration a {
+  font-weight: 600;
+  transition: .5s;
+  color: #f04d3e;
+}
+
+section .go-to-registration a:hover {
+  color: #df2c1c;
 }
 
 svg {
