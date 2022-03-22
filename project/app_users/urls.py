@@ -10,15 +10,12 @@ urlpatterns = [
     path('dashboard', views.view_dashboard, name='dashboard'),
     path('account/credentials', views.view_change_credentials, name='credentials'),
     path('account/validation', views.view_validation, name='validation'),
-
-
-
-
     path('account/update', views.view_update, name='update-profile'),
     path('account/delete', views.view_delete, name='delete-account'),
-
-
-
+    
+    
+    
+    
     path('project/post', views.view_post_project, name='post'),
     #architects
 

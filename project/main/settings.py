@@ -13,6 +13,7 @@ INSTALLED_APPS = [ # My apps
     'main',
     'app_base',
     'app_users',
+    'app_projects',
 ]
 # Static files  //  Can be used to include pointers when implementing CDN
 STATICFILES_DIRS = ()
@@ -26,7 +27,7 @@ template_dirs_list = [
     #Add other sub-directories: _static/templates/new_app_name
     os.path.join(BASE_DIR, '_static/templates/app_base'),
     os.path.join(BASE_DIR, '_static/templates/app_users'),
-
+    os.path.join(BASE_DIR, '_static/templates/app_projects'),
 ]
 
 # Email settings:
@@ -136,6 +137,7 @@ STATICFILES_DIRS += (
     os.path.join(BASE_DIR, '_static/styles/css'),
     os.path.join(BASE_DIR, '_static/scripts'),
     os.path.join(BASE_DIR, 'app_users/u/'),
+    os.path.join(BASE_DIR, 'app_projects/u/')
     
 )
 STATIC_URL = 'static/media/'
@@ -143,6 +145,9 @@ STATIC_MEDIA_ROOT = os.path.join(BASE_DIR, '_static/media/')
 
 USER_MEDIA_URL = '/app_users/u/'
 USER_MEDIA_ROOT = os.path.join(BASE_DIR, 'app_users/u/')
+
+PROJECT_MEDIA_URL = '/app_projects/u'
+PROJECT_MEDIA_ROOT = os.path.join(BASE_DIR, 'app_projects/u')
 
 
 # Default primary key field type

@@ -11,3 +11,9 @@
         venv/scripts/activate
 5. Install all the project dependencies:
         pip install -r dependencies.txt
+
+
+
+
+
+

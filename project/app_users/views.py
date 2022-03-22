@@ -1,7 +1,6 @@
 from django.http import BadHeaderError, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-
 from main.settings import USER_MEDIA_ROOT, STATIC_MEDIA_ROOT, admin_email
 from .forms import (
     CustomRegistrationForm,
@@ -198,6 +197,15 @@ def view_update(request):
     else:
         return redirect('login')
 
+def view_delete(request):
+    user = request.user
+    if user.is_authenticated:
+        user.delete()
+        logout(request)
+        return redirect('home')
+    else:
+        return redirect('login')
+
 
 
 #_________________________________________________________
@@ -218,8 +226,10 @@ def view_dashboard(request):
 
 
 
-def view_delete(request):
-    pass
+
+
+
+
 def view_post_project(request):
     pass
 
