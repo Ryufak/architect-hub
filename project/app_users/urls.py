@@ -16,7 +16,6 @@ urlpatterns = [
     
     
     
-    path('project/post', views.view_post_project, name='post'),
     #architects
 
     

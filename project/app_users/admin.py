@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
 
+
 class AccountAdmin(UserAdmin):
     #Shows properties defined in the CustomUser class in models.py
     list_display = ('email', 'username', 'pending_validation', 'is_activated', 'is_validated', 'is_admin', 'is_staff', 'is_superuser', 'date_joined', 'last_login', 'is_active')
@@ -15,3 +16,4 @@ class AccountAdmin(UserAdmin):
     fieldsets = ()
 
 admin.site.register(CustomUser, AccountAdmin)
+

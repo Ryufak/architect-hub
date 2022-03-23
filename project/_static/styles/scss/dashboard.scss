@@ -26,7 +26,7 @@ section {
         width: 100%;
         @media screen and (max-width: 450px) {height: 25vh;}
         @media screen and (min-width: 450px) {height: 25vh;}
-        @media screen and (min-width: 1050px) {height: 250px;}
+        @media screen and (min-width: 1050px) {height: 400px;}
         @include flexbox();
         flex-direction: column;
         & .image {

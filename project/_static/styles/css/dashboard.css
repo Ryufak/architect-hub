@@ -110,7 +110,7 @@ section .header {
 
 @media screen and (min-width: 1050px) {
   section .header {
-    height: 250px;
+    height: 400px;
   }
 }
 

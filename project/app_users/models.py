@@ -72,7 +72,6 @@ class CustomUser(AbstractBaseUser):
     about               = models.CharField(max_length=600)
     certification       = models.URLField()
 
-    #Images
 
     def profile_picture(instance, filename):
         upload_to = os.path.join(USER_MEDIA_ROOT, str(instance.username))

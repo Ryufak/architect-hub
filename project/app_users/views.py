@@ -230,8 +230,7 @@ def view_dashboard(request):
 
 
 
-def view_post_project(request):
-    pass
+
 
 
 
