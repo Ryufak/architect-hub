@@ -42,7 +42,6 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser):
 
-    # These are required
     email               = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username            = models.CharField(max_length=30, unique=True)
     date_joined         = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
@@ -92,6 +91,7 @@ class CustomUser(AbstractBaseUser):
     REQUIRED_FIELDS = ['username',]
 
     objects = CustomUserManager()
+
 
     #Displays returned value when you print a CustomUser object
     def __str__(self):

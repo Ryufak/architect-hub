@@ -18,3 +18,6 @@ class ProjectsAdmin(admin.ModelAdmin):
 
 admin.site.register(ProjectModel, ProjectsAdmin)
 
+
+
+

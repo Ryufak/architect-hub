@@ -167,6 +167,8 @@ def view_validation(request):
                     fss.delete('image.png')
                     
                     return redirect('dashboard')
+                else:
+                    context['form'] = form
             else:
                 form = CustomUserValidationForm()
                 context['form'] = form

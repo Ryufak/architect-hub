@@ -31,9 +31,11 @@
                 {{ form.non_field_errors }}
             </p></div>
         {% endif%}
+        <input type="file" name="files" multiple>
         <input class="submit-button" type="submit" value="Create">
     </form>
 
+    <a href="{% url 'dashboard' %}">Back</a>
 
 </section>
 {% endblock %}
