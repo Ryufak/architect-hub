@@ -242,10 +242,20 @@ def view_architects(request):
     context['objects'] = objects
     return render(request, 'search-architects.html', context)
 
+def view_architect_page(request, id):
+    context = {}
+    architect = CustomUser.objects.filter(username=id)
+    if not architect:
+        raise Http404
+    if not architect[0].is_activated:
+        raise Http404
 
+    projects = ProjectModel.objects.filter(author__in=architect)
 
-#_________________________________________________________
-# Incomplete
+    context['architect'] = architect
+    context['projects'] = projects
+    return render(request, 'architect-page.html', context)
+
 def view_dashboard(request):
     user = request.user
     context = {'user': user,}
@@ -253,32 +263,21 @@ def view_dashboard(request):
         if not user.is_activated:
                 return redirect('activate')
         else:
+            projects = ProjectModel.objects.filter(author=user)
+
+            context['projects'] = projects
             return render(request, 'dashboard.html', context)
-        #add context
     else:
         return redirect('login')
+#_________________________________________________________
+# Incomplete
 
 
 
 
 
-#architect-page.html
-
-def view_architect_page(request, id):
-    context = {}
-    architect = CustomUser.objects.filter(activation_key=id)
-    if not architect:
-        raise Http404
-    if not architect[0].is_activated:
-        raise Http404
 
 
-    projects = ProjectModel.objects.filter(author__in=architect)
-
-
-    context['architect'] = architect
-    context['projects'] = projects
-    return render(request, 'architect-page.html', context)
 
 
 def template(request):
@@ -290,16 +289,4 @@ def template(request):
 
     else:
         return redirect('login')
-
-
-
-
-
-def test(request, id):
-    context = {}
-    project = ProjectModel.objects.filter(ref_number=id)
-    if not project:
-        raise Http404
-
-    return render(request, 'home.html', context)
 

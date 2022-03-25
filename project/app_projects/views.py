@@ -128,10 +128,28 @@ def view_delete_project(request, id):
     else:
         return redirect('login')
 
+def project_page(request, id):
+    context = {}
+    project = ProjectModel.objects.filter(ref_number=id)
+    if not project:
+        raise Http404
+    context['project'] = project[0]
+
+    path = os.path.join(PROJECT_MEDIA_ROOT, project[0].author.username, project[0].ref_number)
+    fss = FileSystemStorage(location=path)
+    files = fss.listdir(path)[1]
+    files.remove('Thumbnail.png')
+    context['images'] = files
+
+    context['path'] = path
+    return render(request, 'project-page.html', context)
+
 
 
 #_________________________________________________________
 # Incomplete
+
+
 
 
 

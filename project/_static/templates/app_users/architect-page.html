@@ -45,7 +45,7 @@
 {% if projects %}
     {% for project in projects %}
         <p>{{ project.title }}</p>
-        <a href="{% url 'test' id=project.ref_number %}">Project Link</a>
+        <a target="_blank" href="{% url 'project-page' id=project.ref_number %}">Project Link</a>
     {% endfor %}
 {% else %}
 <p>The user hasn't uploaded any projects yet</p>

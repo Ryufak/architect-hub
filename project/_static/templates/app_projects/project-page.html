@@ -1,0 +1,59 @@
+{% extends 'BASE.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{project.title}}</title>
+{% endblock title %}
+
+
+{% block description %}
+<meta name="description" content="Description">
+{% endblock description %}
+
+
+{% block addons %}
+<script src="{% static 'project-page.js' %}"></script>
+<link rel="stylesheet" href="{% static 'project-page.css' %}">
+{% endblock addons %}
+
+{% block content %}
+<section class="en" style="display: flexbox; flex-direction: column;">
+
+
+<div class="carousel">
+    <img style="height:100px" src="../{{ project.image_thumbnail }}">
+
+    {% for image in images %}
+    <img style="height:100px" src="../app_projects/u/{{project.author.username}}/{{project.ref_number}}/{{image}}">
+    {% endfor %}
+    <img src="">
+
+</div>
+
+
+<h1>{{ project.title }}</h1>
+
+<p>Author : <a href="{% url 'architect-page' id=project.author.username %}">{{ project.author.first_name }} {{ project.author.last_name }}</a></p>
+
+<p>{{project.created}}</p>
+
+<p>{{project.description}}</p>
+
+<div>
+    <p>Type: <em>{{project.type}}</em></p>
+    <p>Building area: <em>{{project.building_area}}</em> m<sup>2</sup></p>
+    <p>Cubic capacity: <em>{{project.cubic_capacity}}</em> m<sup>3</sup></p>
+    <p>Height: <em>{{project.height}}</em> m</p>
+</div>
+
+
+<p>{{test}}</p>
+
+
+</section>
+
+{% for image in images %}
+<p>{{path}}/{{image}}</p>
+{%endfor%}
+{% endblock %}
+

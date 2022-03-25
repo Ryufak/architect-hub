@@ -13,13 +13,7 @@ urlpatterns = [
     path('account/update', views.view_update, name='update-profile'),
     path('account/delete', views.view_delete, name='delete-account'),
     path('search/architects', views.view_architects, name='architects'),
-
-
     path('architect/<str:id>', views.view_architect_page, name='architect-page'),
 
-    
-    
-    #Put in app_projects
-    path('project/<str:id>', views.test, name='test')
 
 ]

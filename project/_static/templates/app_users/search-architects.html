@@ -20,7 +20,7 @@
 <section class="en">
 
     <form id="form" method="post" action="{% url 'architects' %}">   {% csrf_token %}
-        <input type="search" name="search" placeholder="Search">
+        <input id="search" type="search" name="search" placeholder="Search">
         <input type="submit" value="search" id="input-submit">
     </form>
 
@@ -35,7 +35,7 @@
     <p>Name:    {{object.first_name}}  {{object.last_name}}</p>
     <p>Country:     {{object.country}}</p>
     <p>City:        {{object.city}}</p>
-    <a href="{% url 'architect-page' id=object.activation_key %}">link</a>
+    <a href="{% url 'architect-page' id=object.username %}">link</a>
 </div>
 {% endfor %}
 
