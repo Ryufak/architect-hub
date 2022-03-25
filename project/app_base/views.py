@@ -1,6 +1,4 @@
 from django.shortcuts import (render, redirect)
-import os
-
 
 
 def view_home(request):
@@ -9,10 +7,5 @@ def view_home(request):
 def view_about(request):
     return render(request, 'about.html')
 
-def view_architects(request):
-    #build
-    pass
 
-def view_upload_project(request):
-    pass
-    #build
+

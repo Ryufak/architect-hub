@@ -1,19 +1,21 @@
-from django.http import BadHeaderError, HttpResponse
+from django.http import BadHeaderError, Http404, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from main.settings import USER_MEDIA_ROOT, STATIC_MEDIA_ROOT, admin_email
+from main.settings import USER_MEDIA_ROOT, STATIC_MEDIA_ROOT, PROJECT_MEDIA_ROOT, admin_email
+from .models import CustomUser
+from app_projects.models import ProjectModel
 from .forms import (
     CustomRegistrationForm,
     CustomLoginForm,
     CustomUserCredentialsForm,
     UserActivateForm,
     CustomUserValidationForm,
-    CustomUserInfoForm
+    CustomUserInfoForm,
     )
 import os
 from main.mail_templates import mail_activation_key, validation_email_ping
 from django.core.files.storage import FileSystemStorage
-
+from django.db.models import Q
 
 
 
@@ -60,7 +62,10 @@ def view_register(request):
                 email = user.email
                 username = user.username
                 activation_key = user.activation_key
-                mail_activation_key(username, email, activation_key)
+                try:
+                    mail_activation_key(username, email, activation_key)
+                except ValueError:
+                    return HttpResponse(status=500)
                 
                 return redirect('activate')
             else:
@@ -122,11 +127,24 @@ def view_change_credentials(request):   # Also changes user folder name
     if user.is_authenticated:
         if user.is_activated:
             if request.POST:
+                user_folder_old_u = os.path.join(USER_MEDIA_ROOT, str(user.username))
+                user_folder_old_p = os.path.join(PROJECT_MEDIA_ROOT, str(user.username))
                 form = CustomUserCredentialsForm(request.POST, instance=user)
-                old_username = os.path.join(USER_MEDIA_ROOT, str(user.username))
                 if form.is_valid():
-                    new_username = os.path.join(USER_MEDIA_ROOT, str(form.cleaned_data.get('username')))
-                    os.rename(old_username, new_username)
+                    # Renames or creates the user folder in app_users
+                    user_folder_new_u = os.path.join(USER_MEDIA_ROOT, str(form.cleaned_data.get('username')))
+                    try:
+                        os.rename(user_folder_old_u, user_folder_new_u)
+                    except FileNotFoundError:
+                        os.makedirs(user_folder_new_u)
+
+                    # Renames or creates the user folder in app_projects
+                    user_folder_new_p = os.path.join(PROJECT_MEDIA_ROOT, str(form.cleaned_data.get('username')))
+                    try:
+                        os.rename(user_folder_old_p, user_folder_new_p)
+                    except FileNotFoundError:
+                        os.makedirs(user_folder_new_p)
+
                     form.save()
                     context['message'] = 'Details changed successfully'
             else:
@@ -209,6 +227,22 @@ def view_delete(request):
         return redirect('login')
 
 
+def view_architects(request):
+    context = {}
+    if request.POST:
+        search = request.POST['search']
+        objects = CustomUser.objects.filter(
+            Q(first_name__icontains=search) | 
+            Q(last_name__icontains=search) | 
+            Q(country__icontains=search) | 
+            Q(city__icontains=search)).filter(is_activated=True)
+        context['search'] = search
+    else:
+        objects = CustomUser.objects.filter(is_activated=True)
+    context['objects'] = objects
+    return render(request, 'search-architects.html', context)
+
+
 
 #_________________________________________________________
 # Incomplete
@@ -228,17 +262,23 @@ def view_dashboard(request):
 
 
 
+#architect-page.html
+
+def view_architect_page(request, id):
+    context = {}
+    architect = CustomUser.objects.filter(activation_key=id)
+    if not architect:
+        raise Http404
+    if not architect[0].is_activated:
+        raise Http404
 
 
+    projects = ProjectModel.objects.filter(author__in=architect)
 
 
-
-
-
-
-
-
-
+    context['architect'] = architect
+    context['projects'] = projects
+    return render(request, 'architect-page.html', context)
 
 
 def template(request):
@@ -255,6 +295,11 @@ def template(request):
 
 
 
+def test(request, id):
+    context = {}
+    project = ProjectModel.objects.filter(ref_number=id)
+    if not project:
+        raise Http404
 
-
+    return render(request, 'home.html', context)
 

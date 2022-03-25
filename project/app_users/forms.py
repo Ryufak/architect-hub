@@ -69,6 +69,3 @@ class CustomUserInfoForm(forms.ModelForm):
         model = models.CustomUser
         fields = ('first_name', 'last_name', 'about', 'country', 'city', 'image_cover', 'image_profile')
         
-
-
-

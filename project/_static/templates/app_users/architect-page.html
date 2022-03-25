@@ -1,0 +1,58 @@
+{% extends 'BASE.html' %}
+{% load static %}
+
+{% block title %}
+<title>Search</title>
+{% endblock title %}
+
+
+{% block description %}
+<meta name="description" content="Description">
+{% endblock description %}
+
+
+{% block addons %}
+<script src="{% static 'search-architects.js' %}"></script>
+<link rel="stylesheet" href="{% static 'search-architects.css' %}">
+{% endblock addons %}
+
+{% block content %}
+<section class="en" style="display: flexbox; flex-direction: column;">
+
+<div class="head">
+    <img src="../{{ architect.image_cover }}">
+    <img src="../{{ architect.image_profile }}">
+</div>
+<h1>{{ architect.first_name }} {{ architect.last_name }}</h1>
+
+<p>{{ architect.email }}</p>
+<p>{{ architect.date_joined }}</p>
+
+{% if architect.is_validated %}
+<span>Checkmark</span>
+{% endif %}
+
+<div>
+    <p>{{ architect.country }}</p>
+    <p>{{ architect.city }}</p>
+</div>
+
+<p>{{ architect.about }}</p>
+
+<a target="_blank" href="{{ architect.certification }}">Certification</a>
+
+
+{% if projects %}
+    {% for project in projects %}
+        <p>{{ project.title }}</p>
+        <a href="{% url 'test' id=project.ref_number %}">Project Link</a>
+    {% endfor %}
+{% else %}
+<p>The user hasn't uploaded any projects yet</p>
+{% endif %}
+
+
+
+
+</section>
+{% endblock %}
