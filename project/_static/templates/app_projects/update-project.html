@@ -12,11 +12,11 @@
 
 
 {% block addons %}
-<link rel="stylesheet" href="{% static 'project.css' %}">
+<link rel="stylesheet" href="{% static 'forms.css' %}">
 {% endblock addons %}
 
 {% block content %}
-<section class="en">
+<section class="en account-validation">
 
     <form method="post" enctype="multipart/form-data"> {% csrf_token %}
         {% for field in form %}
@@ -37,7 +37,7 @@
 
     <a href="{% url 'project-delete' id=ref_number %}">Delete</a>
 
-    <a href="{% url 'dashboard' %}">Back</a>
+    <a class="back" href="{% url 'dashboard' %}">Back</a>
 
 </section>
 {% endblock %}

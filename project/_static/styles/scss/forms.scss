@@ -5,3 +5,119 @@
 */
 
 @import "global";
+$min-section-height: calc(100vh - #{$nav-height});
+
+section {
+    min-height: $min-section-height;
+    padding: 5vh 0;
+    & * {padding: unset;}
+    width: 100vw;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & * {font-family: inherit;}
+&.account-activation {
+    padding: 0 20px;
+    text-align: center;
+    color: $dark;
+    & h1 {
+        @include f20();
+        padding: 20px 0;}
+    & p {
+        @include f16();
+        &.admin-email {@include f12();}
+        padding: 10px 0;
+        & em {
+            color: black;
+            font-weight: 600;}}
+    & form {
+        @include flexbox();
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 50px 0;
+        & * {margin: unset;}
+        & .field-label {
+            @include f16();}
+        & input {
+            text-align: center;
+            font-weight: 600;
+            @include f12();
+            font-family: 'poppins', sans-serif;}
+        & input[type=text] {
+            outline-width: 0;
+            appearance: none;
+            border: none;
+            border-bottom: 2px solid $dark;
+            height: 40px;
+            margin: 20px 0;
+            @media screen and (max-width: 450px) {width: 90vw;}
+            @media screen and (min-width: 450px) {width: 70vw;}
+            @media screen and (min-width: 1050px) {width: 60vw;}}
+        & input[type=submit] {
+            cursor: pointer;
+            color: $dark;
+            height: 40px;
+            @media screen and (max-width: 450px) {width: 30vw;}
+            @media screen and (min-width: 450px) {width: 20vw;}
+            @media screen and (min-width: 1050px) {width: 120px;}}
+        & .error-message, & .error {
+            font-weight: 500;
+            padding-bottom: 20px;
+            color: red;}}
+    & .activation-help {
+        color: $dark;
+        @include f12();
+        & a {
+            color: $dark;
+            font-weight: 600;}}}
+
+&.account-validation {
+    & h1 {
+        @include f20();}
+    & .descr {
+        text-align: center;
+        @include f12();
+        padding: 10px 0;}
+    & form {
+        @include flexbox();
+        flex-direction: column;
+        @media screen and (max-width: 450px) {padding: 0 5vw;}
+        @media screen and (min-width: 450px) {}
+        @media screen and (min-width: 1050px) {}
+        & * {padding: unset;}
+        & textarea {
+            text-align: center;
+            appearance: none;
+            outline-width: 0;
+            font-weight: 500;
+            @include f12();
+            resize: none;
+            height: 30px;
+            line-height: 26px;
+            padding: 0 5px;}
+        & input[type=file] {
+            margin: 15px 0;
+            height: 30px;}
+        & .field-label {
+            @media screen and (max-width: 1050px) {@include f16();}
+            @media screen and (min-width: 1050px) {@include f12();}
+            margin: 15px 0 5px 0;}
+        & .descr2 {
+            text-align: left;
+            @include f10();}
+        & .error-message {
+            color: red;
+            font-weight: 500;}
+        & .submit-button {
+            height: 40px;
+            width: 60%;
+            margin: 0 20%;}}}
+    & .back {
+        color: $dark;
+        font-weight: 500;
+        margin-top: 15px;
+    }
+
+}

@@ -127,24 +127,8 @@ def view_change_credentials(request):   # Also changes user folder name
     if user.is_authenticated:
         if user.is_activated:
             if request.POST:
-                user_folder_old_u = os.path.join(USER_MEDIA_ROOT, str(user.username))
-                user_folder_old_p = os.path.join(PROJECT_MEDIA_ROOT, str(user.username))
                 form = CustomUserCredentialsForm(request.POST, instance=user)
                 if form.is_valid():
-                    # Renames or creates the user folder in app_users
-                    user_folder_new_u = os.path.join(USER_MEDIA_ROOT, str(form.cleaned_data.get('username')))
-                    try:
-                        os.rename(user_folder_old_u, user_folder_new_u)
-                    except FileNotFoundError:
-                        os.makedirs(user_folder_new_u)
-
-                    # Renames or creates the user folder in app_projects
-                    user_folder_new_p = os.path.join(PROJECT_MEDIA_ROOT, str(form.cleaned_data.get('username')))
-                    try:
-                        os.rename(user_folder_old_p, user_folder_new_p)
-                    except FileNotFoundError:
-                        os.makedirs(user_folder_new_p)
-
                     form.save()
                     context['message'] = 'Details changed successfully'
             else:
@@ -271,22 +255,4 @@ def view_dashboard(request):
         return redirect('login')
 #_________________________________________________________
 # Incomplete
-
-
-
-
-
-
-
-
-
-def template(request):
-    context = {}
-    user = request.user
-    if user.is_authenticated:
-        context['user'] = user
-        return render(request, 'activate.html', context)
-
-    else:
-        return redirect('login')
 

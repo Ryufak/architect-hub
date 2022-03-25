@@ -36,7 +36,7 @@ class CustomUserCredentialsForm(forms.ModelForm):
 
     class Meta:
         model = models.CustomUser
-        fields = ('email', 'username')
+        fields = ('email',)
 
 
     def clean_email(self):

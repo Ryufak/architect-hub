@@ -35,7 +35,7 @@ email_username = ''
 email_password = ''
 
 # Admin utils
-admin_email = ''
+admin_email = 'admin_admin@admin.admin'
 
 #----------------------------------------------------
 # These are for local testing.

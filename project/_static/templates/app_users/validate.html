@@ -12,11 +12,13 @@
 
 
 {% block addons %}
-<link rel="stylesheet" href="{% static 'user-forms.css' %}">
+<link rel="stylesheet" href="{% static 'forms.css' %}">
 {% endblock addons %}
 
 {% block content %}
-<section class="en">
+<section class="en account-validation">
+    <h1>Validation form</h1>
+    <p class="descr">You need to validate your account so you could upload projects.</p>
 
     <form method="post" enctype="multipart/form-data"> {% csrf_token %}
         {% for field in form %}
@@ -27,10 +29,10 @@
             {% endfor %}
         {% endfor %}
         {% if form.non_field_errors %}
-            <div class="error-message"><p>
-                {{ form.non_field_errors }}
-            </p></div>
+            <p class="error-message">{{ form.non_field_errors }}</p>
         {% endif%}
+        <p class="field-label">Front of ID or Driver's licence</p>
+        <p class="descr2">This is required to verify if the certification you're providing refer to you.</p>
         <input type="file" name="id_image" required>
         <input class="submit-button" type="submit" value="Send form">
 

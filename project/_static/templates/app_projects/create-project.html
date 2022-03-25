@@ -12,11 +12,11 @@
 
 
 {% block addons %}
-<link rel="stylesheet" href="{% static 'project.css' %}">
+<link rel="stylesheet" href="{% static 'forms.css' %}">
 {% endblock addons %}
 
 {% block content %}
-<section class="en">
+<section class="en account-validation">
 
     <form method="post" enctype="multipart/form-data"> {% csrf_token %}
         {% for field in form %}
@@ -31,11 +31,12 @@
                 {{ form.non_field_errors }}
             </p></div>
         {% endif%}
+        <p class="field-label">Additional images</p>
         <input type="file" name="files" multiple>
         <input class="submit-button" type="submit" value="Create">
     </form>
 
-    <a href="{% url 'dashboard' %}">Back</a>
+    <a class="back" href="{% url 'dashboard' %}">Back</a>
 
 </section>
 {% endblock %}

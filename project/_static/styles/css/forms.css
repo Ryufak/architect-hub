@@ -55,4 +55,229 @@ section {
 .bg {
   font-family: 'Roboto', sans-serif;
 }
+
+section {
+  min-height: calc(100vh - 60px);
+  padding: 5vh 0;
+  width: 100vw;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section * {
+  padding: unset;
+}
+
+section * {
+  font-family: inherit;
+}
+
+section.account-activation {
+  padding: 0 20px;
+  text-align: center;
+  color: #1b1b1b;
+}
+
+section.account-activation h1 {
+  font-size: 20pt;
+  line-height: 25pt;
+  padding: 20px 0;
+}
+
+section.account-activation p {
+  font-size: 16pt;
+  line-height: 20pt;
+  padding: 10px 0;
+}
+
+section.account-activation p.admin-email {
+  font-size: 12pt;
+  line-height: 15pt;
+}
+
+section.account-activation p em {
+  color: black;
+  font-weight: 600;
+}
+
+section.account-activation form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+section.account-activation form * {
+  margin: unset;
+}
+
+section.account-activation form .field-label {
+  font-size: 16pt;
+  line-height: 20pt;
+}
+
+section.account-activation form input {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12pt;
+  line-height: 15pt;
+  font-family: 'poppins', sans-serif;
+}
+
+section.account-activation form input[type=text] {
+  outline-width: 0;
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid #1b1b1b;
+  height: 40px;
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 450px) {
+  section.account-activation form input[type=text] {
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section.account-activation form input[type=text] {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section.account-activation form input[type=text] {
+    width: 60vw;
+  }
+}
+
+section.account-activation form input[type=submit] {
+  cursor: pointer;
+  color: #1b1b1b;
+  height: 40px;
+}
+
+@media screen and (max-width: 450px) {
+  section.account-activation form input[type=submit] {
+    width: 30vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section.account-activation form input[type=submit] {
+    width: 20vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section.account-activation form input[type=submit] {
+    width: 120px;
+  }
+}
+
+section.account-activation form .error-message, section.account-activation form .error {
+  font-weight: 500;
+  padding-bottom: 20px;
+  color: red;
+}
+
+section.account-activation .activation-help {
+  color: #1b1b1b;
+  font-size: 12pt;
+  line-height: 15pt;
+}
+
+section.account-activation .activation-help a {
+  color: #1b1b1b;
+  font-weight: 600;
+}
+
+section.account-validation h1 {
+  font-size: 20pt;
+  line-height: 25pt;
+}
+
+section.account-validation .descr {
+  text-align: center;
+  font-size: 12pt;
+  line-height: 15pt;
+  padding: 10px 0;
+}
+
+section.account-validation form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 450px) {
+  section.account-validation form {
+    padding: 0 5vw;
+  }
+}
+
+section.account-validation form * {
+  padding: unset;
+}
+
+section.account-validation form textarea {
+  text-align: center;
+  appearance: none;
+  outline-width: 0;
+  font-weight: 500;
+  font-size: 12pt;
+  line-height: 15pt;
+  resize: none;
+  height: 30px;
+  line-height: 26px;
+  padding: 0 5px;
+}
+
+section.account-validation form input[type=file] {
+  margin: 15px 0;
+  height: 30px;
+}
+
+section.account-validation form .field-label {
+  margin: 15px 0 5px 0;
+}
+
+@media screen and (max-width: 1050px) {
+  section.account-validation form .field-label {
+    font-size: 16pt;
+    line-height: 20pt;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section.account-validation form .field-label {
+    font-size: 12pt;
+    line-height: 15pt;
+  }
+}
+
+section.account-validation form .descr2 {
+  text-align: left;
+  font-size: 10pt;
+  line-height: 10pt;
+}
+
+section.account-validation form .error-message {
+  color: red;
+  font-weight: 500;
+}
+
+section.account-validation form .submit-button {
+  height: 40px;
+  width: 60%;
+  margin: 0 20%;
+}
+
+section .back {
+  color: #1b1b1b;
+  font-weight: 500;
+  margin-top: 15px;
+}
 /*# sourceMappingURL=forms.css.map */

@@ -19,6 +19,7 @@ $dark: #1b1b1b;
 $gray : #dddddd;
 
 //___________________________________________________________________
+@mixin f10() {font-size: 10pt; line-height: 10pt;}
 @mixin f12() {font-size: 12pt; line-height: 15pt;}
 @mixin f16() {font-size: 16pt; line-height: 20pt;}
 @mixin f20() {font-size: 20pt; line-height: 25pt;}

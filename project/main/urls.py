@@ -20,6 +20,7 @@ urlpatterns = [
     path('', include('app_users.urls')),
     path('', include('app_projects.urls')),
 
+
 ]
 
 
@@ -27,4 +28,3 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(STATIC_URL, document_root=STATIC_MEDIA_ROOT)
 urlpatterns += static(USER_MEDIA_URL, document_root=USER_MEDIA_ROOT)
 urlpatterns += static(PROJECT_MEDIA_URL, document_root=PROJECT_MEDIA_ROOT)
-

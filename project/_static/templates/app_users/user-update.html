@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>Validate account</title>
+<title>Edit info</title>
 {% endblock title %}
 
 
@@ -12,11 +12,11 @@
 
 
 {% block addons %}
-<link rel="stylesheet" href="{% static 'user-forms.css' %}">
+<link rel="stylesheet" href="{% static 'forms.css' %}">
 {% endblock addons %}
 
 {% block content %}
-<section class="en">
+<section class="en account-validation">
 
     <form method="post" enctype="multipart/form-data"> {% csrf_token %}
         {% for field in form %}
