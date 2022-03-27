@@ -1,0 +1,561 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,500&display=swap");
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  -o-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: inherit;
+  padding: inherit;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+em {
+  font-style: normal;
+}
+
+section {
+  -webkit-touch-callout: none;
+  user-select: none;
+  display: flex;
+}
+
+.hide {
+  display: none !important;
+}
+
+.en {
+  font-family: 'poppins', sans-serif;
+}
+
+.bg {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #e6e6e6;
+}
+
+section {
+  width: 100vw;
+  overflow: hidden;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  background-color: white;
+}
+
+@media screen and (max-width: 450px) {
+  section {
+    width: 100vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section {
+    width: 80vw;
+    margin: 0 10vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section {
+    width: 70vw;
+    margin: 0 15vw;
+  }
+}
+
+section * {
+  margin: unset;
+}
+
+section .head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 450px) {
+  section .head {
+    height: 25vh;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .head {
+    height: 25vh;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .head {
+    height: 200px;
+  }
+}
+
+section .head .image {
+  position: relative;
+}
+
+section .head .image img {
+  object-fit: cover;
+}
+
+section .head .cover-photo {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+section .head .cover-photo img {
+  width: 100%;
+  height: 100%;
+}
+
+section .head .profile-picture {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+section .head .profile-picture img {
+  border-radius: 100%;
+  border: 2px solid white;
+}
+
+@media screen and (max-width: 450px) {
+  section .head .profile-picture img {
+    width: 35vw;
+    height: 35vw;
+    margin-top: -17.5vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .head .profile-picture img {
+    width: 22vw;
+    height: 22vw;
+    margin-top: -11vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .head .profile-picture img {
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-right: calc(100% - 180px);
+  }
+}
+
+section .info:not(p) {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 450px) {
+  section .info:not(p) {
+    margin-top: 10vh;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .info:not(p) {
+    margin-top: 8vh;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .info:not(p) {
+    margin-top: 70px;
+  }
+}
+
+section .info:not(p) * {
+  padding: unset;
+  margin: unset;
+}
+
+section .info:not(p) .person {
+  margin-bottom: 50px;
+}
+
+section .info:not(p) .person * {
+  margin: unset;
+}
+
+section .info:not(p) .person h1 {
+  width: 100%;
+  color: #1b1b1b;
+  text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+  section .info:not(p) .person h1 {
+    font-size: 7vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .info:not(p) .person h1 {
+    font-size: 4.5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .info:not(p) .person h1 {
+    text-align: left;
+    font-size: 20pt;
+    line-height: 25pt;
+  }
+}
+
+section .info:not(p) .person #wrapper1 {
+  width: 100%;
+}
+
+section .info:not(p) .person #wrapper1 .position {
+  width: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  color: #313131;
+  justify-content: center;
+}
+
+@media screen and (max-width: 450px) {
+  section .info:not(p) .person #wrapper1 .position {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .info:not(p) .person #wrapper1 .position {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .info:not(p) .person #wrapper1 .position {
+    justify-content: flex-start;
+    font-size: 16pt;
+    line-height: 20pt;
+  }
+}
+
+section .info:not(p) .person #wrapper1 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 450px) {
+  section .info:not(p) .person #wrapper1 span {
+    height: 8vw;
+    width: 5vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .info:not(p) .person #wrapper1 span {
+    height: 4vw;
+    width: 5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .info:not(p) .person #wrapper1 span {
+    height: 20pt;
+    width: 16pt;
+  }
+}
+
+section .info:not(p) .person #wrapper1 span svg {
+  width: 100%;
+  height: 100%;
+}
+
+section .info:not(p) p.info {
+  color: #1b1b1b;
+}
+
+section .info:not(p) p.info em {
+  font-weight: 600;
+}
+
+section .info:not(p) p.info.last-active {
+  font-size: 11pt;
+}
+
+section .info:not(p) .about {
+  margin: 50px 0;
+  text-align: left;
+  background-color: #dddddd;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+section .info:not(p) .about h1 {
+  color: #1b1b1b;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 1050px) {
+  section .info:not(p) .about h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .info:not(p) .about h1 {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  section .info:not(p) .about {
+    padding: 4vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .info:not(p) .about {
+    padding: 40px;
+  }
+}
+
+section .info:not(p) .about * {
+  margin: unset;
+  padding: unset;
+}
+
+section .info:not(p) .certification {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1b1b1b;
+  transition: .5s;
+}
+
+section .info:not(p) .certification:hover {
+  color: #313131;
+}
+
+@media screen and (max-width: 450px) {
+  section .info:not(p) .certification {
+    font-size: 6vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .info:not(p) .certification {
+    font-size: 3.5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .info:not(p) .certification {
+    font-size: 20pt;
+    line-height: 25pt;
+  }
+}
+
+section .projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px 0;
+  color: #1b1b1b;
+  width: 100%;
+}
+
+@media screen and (max-width: 1050px) {
+  section .projects {
+    padding: 0 3vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .projects {
+    padding: 0 50px;
+  }
+}
+
+section .projects * {
+  margin: unset;
+  padding: unset;
+}
+
+section .projects h1, section .projects p.projects {
+  width: 100%;
+  text-align: center;
+}
+
+section .projects p.projects {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 450px) {
+  section .projects p.projects {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .projects p.projects {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .projects p.projects {
+    font-size: 12pt;
+    line-height: 15pt;
+  }
+}
+
+section .projects .project {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  section .projects .project {
+    width: 90%;
+    height: 450px;
+    margin: 20px 5vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .projects .project {
+    width: 96%;
+    height: 350px;
+    margin: 20px 2%;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .projects .project {
+    width: 100%;
+    height: 350px;
+    margin: 20px 0;
+  }
+  section .projects .project:hover .text-wrapper {
+    top: 50%;
+  }
+}
+
+section .projects .project * {
+  margin: unset;
+}
+
+section .projects .project .text-wrapper {
+  width: 100%;
+  background-color: rgba(27, 27, 27, 0.8);
+  overflow: hidden;
+  padding: 10px 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: .8s;
+}
+
+@media screen and (max-width: 450px) {
+  section .projects .project .text-wrapper {
+    top: 70%;
+    height: 30%;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .projects .project .text-wrapper {
+    top: 60%;
+    height: 40%;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .projects .project .text-wrapper {
+    top: 100%;
+    height: 50%;
+  }
+}
+
+section .projects .project .text-wrapper * {
+  padding: unset;
+  margin: unset;
+}
+
+section .projects .project .text-wrapper p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 20px;
+  max-height: 80px;
+  -webkit-line-clamp: 4;
+}
+
+@media screen and (max-width: 450px) {
+  section .projects .project .text-wrapper p {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .projects .project .text-wrapper p {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .projects .project .text-wrapper p {
+    font-size: 12pt;
+    line-height: 15pt;
+  }
+}
+
+section .projects .project a {
+  color: white;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+section .projects .no-projects {
+  color: #1b1b1b;
+  text-align: center;
+  width: 100%;
+  margin: 30px 0;
+  font-weight: 500;
+}
+/*# sourceMappingURL=architects-page.css.map */

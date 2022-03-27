@@ -1,0 +1,68 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,500&display=swap");
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  -o-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: inherit;
+  padding: inherit;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+em {
+  font-style: normal;
+}
+
+section {
+  -webkit-touch-callout: none;
+  user-select: none;
+  display: flex;
+}
+
+.hide {
+  display: none !important;
+}
+
+.en {
+  font-family: 'poppins', sans-serif;
+}
+
+.bg {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #dddddd;
+}
+
+section {
+  flex-direction: column;
+  width: 100vw;
+  overflow: hidden;
+}
+/*# sourceMappingURL=error.css.map */

@@ -5,3 +5,85 @@
 */
 
 @import "global";
+$min-height: calc(100vh - #{$nav-height});
+$background-gray: rgb(230, 230, 230);
+
+section {
+    min-height: $min-height;
+    width: 100vw;
+    overflow: hidden;
+    flex-direction: column;
+
+    & .carousel {
+        //overflow: hidden;
+        width: 100%;
+        @media screen and (max-width: 450px) {height: 60vh;}
+        @media screen and (min-width: 450px) {height: 50vh;}
+        @media screen and (min-width: 1050px) {height: $min-height;}
+        position: relative;
+        & .images {
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            @include flexbox();
+            flex-direction: row;
+            position: absolute;
+            & * {margin: unset;}
+            & .img {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                transition: .8s;}
+            & .sub-img {margin-left: 100%;}}
+        & .arrows {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            @include flexbox();
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            & * {padding: unset;}
+            & div {
+                height: 60px;
+                width: 60px;
+                cursor: pointer;
+                border-radius: 50px;
+                background-color: rgba($color: $dark, $alpha: .8);
+                &:hover svg {fill: white;}
+                & svg {
+                    padding: 10px;
+                    height: 100%;
+                    width: auto;
+                    fill: $gray;
+                    transition: .5s;}}}}
+    & .text {
+        padding: 5%;
+        & * {padding: unset;}
+        color: $dark;
+        & h1 {
+            width: 100%;
+            text-align: left;
+            @media screen and (max-width: 450px) {font-size: 7vw;}
+            @media screen and (min-width: 450px) {font-size: 4vw;}
+            @media screen and (min-width: 1050px) {@include f24();}}
+        & p {
+            text-align: left;
+            @media screen and (max-width: 450px) {font-size: 5vw;}
+            @media screen and (min-width: 450px) {font-size: 2.5vw;}
+            @media screen and (min-width: 1050px) {@include f16();}
+            & em {font-weight: 600;}
+            & a {
+                color: $dark;
+                transition: .5s;
+                &:hover {color: $dark-mono;}}}}
+    & .description {
+        padding: 5%;
+        & * {padding: unset;}
+        color: $dark;
+        background-color: $background-gray;
+        
+    }
+}

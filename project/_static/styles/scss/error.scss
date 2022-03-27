@@ -1,0 +1,16 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+
+@import "global";
+
+body {background-color: $gray;}
+section {
+    flex-direction: column;
+    width: 100vw;
+    overflow: hidden;
+
+
+}

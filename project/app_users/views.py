@@ -236,7 +236,7 @@ def view_architect_page(request, id):
 
     projects = ProjectModel.objects.filter(author__in=architect)
 
-    context['architect'] = architect
+    context['architect'] = architect[0]
     context['projects'] = projects
     return render(request, 'architect-page.html', context)
 

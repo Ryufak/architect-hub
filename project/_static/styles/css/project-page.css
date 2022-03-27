@@ -55,4 +55,173 @@ section {
 .bg {
   font-family: 'Roboto', sans-serif;
 }
+
+section {
+  min-height: calc(100vh - 60px);
+  width: 100vw;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+section .carousel {
+  width: 100%;
+  position: relative;
+}
+
+@media screen and (max-width: 450px) {
+  section .carousel {
+    height: 60vh;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .carousel {
+    height: 50vh;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .carousel {
+    height: calc(100vh - 60px);
+  }
+}
+
+section .carousel .images {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
+
+section .carousel .images * {
+  margin: unset;
+}
+
+section .carousel .images .img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: .8s;
+}
+
+section .carousel .images .sub-img {
+  margin-left: 100%;
+}
+
+section .carousel .arrows {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+section .carousel .arrows * {
+  padding: unset;
+}
+
+section .carousel .arrows div {
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: rgba(27, 27, 27, 0.8);
+}
+
+section .carousel .arrows div:hover svg {
+  fill: white;
+}
+
+section .carousel .arrows div svg {
+  padding: 10px;
+  height: 100%;
+  width: auto;
+  fill: #dddddd;
+  transition: .5s;
+}
+
+section .text {
+  padding: 5%;
+  color: #1b1b1b;
+}
+
+section .text * {
+  padding: unset;
+}
+
+section .text h1 {
+  width: 100%;
+  text-align: left;
+}
+
+@media screen and (max-width: 450px) {
+  section .text h1 {
+    font-size: 7vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .text h1 {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .text h1 {
+    font-size: 24pt;
+    line-height: 30pt;
+  }
+}
+
+section .text p {
+  text-align: left;
+}
+
+@media screen and (max-width: 450px) {
+  section .text p {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  section .text p {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  section .text p {
+    font-size: 16pt;
+    line-height: 20pt;
+  }
+}
+
+section .text p em {
+  font-weight: 600;
+}
+
+section .text p a {
+  color: #1b1b1b;
+  transition: .5s;
+}
+
+section .text p a:hover {
+  color: #313131;
+}
+
+section .description {
+  padding: 5%;
+  color: #1b1b1b;
+  background-color: #e6e6e6;
+}
+
+section .description * {
+  padding: unset;
+}
 /*# sourceMappingURL=project-page.css.map */

@@ -1,0 +1,219 @@
+/*
+@media screen and (max-width: 450px) {}
+@media screen and (min-width: 450px) {}
+@media screen and (min-width: 1050px) {}
+*/
+
+@import "global";
+$min-height: calc(100vh - #{$nav-height});
+$background-gray: rgb(230, 230, 230);
+
+body {background-color: $background-gray;}
+section {
+    width: 100vw;
+    overflow: hidden;
+    flex-direction: column;
+    min-height: $min-height;
+    @media screen and (max-width: 450px) {
+        width: 100vw;}
+    @media screen and (min-width: 450px) {
+        width: 80vw;
+        margin: 0 10vw;}
+    @media screen and (min-width: 1050px) {
+        width: 70vw;
+        margin: 0 15vw;}
+    & * {margin: unset;}
+    background-color: white;
+
+
+    & .head {
+        width: 100%;
+        @media screen and (max-width: 450px) {height: 25vh;}
+        @media screen and (min-width: 450px) {height: 25vh;}
+        @media screen and (min-width: 1050px) {height: 200px;}
+        @include flexbox();
+        flex-direction: column;
+        & .image {
+            position: relative;
+            & img {object-fit: cover;}}
+        & .cover-photo {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            & img {
+                width: 100%;
+                height: 100%;}}
+        & .profile-picture {
+            width: 100%;
+            @include flexbox();
+            justify-content: center;
+            z-index: 2;
+            & img {
+                border-radius: 100%;
+                border: 2px solid white;
+                @media screen and (max-width: 450px) {
+                    width: 35vw;
+                    height: 35vw;
+                    margin-top: -17.5vw;}
+                @media screen and (min-width: 450px) {
+                    width: 22vw;
+                    height: 22vw;
+                    margin-top: -11vw;}
+                @media screen and (min-width: 1050px) {
+                    width: 120px;
+                    height: 120px;
+                    margin-top: -60px;
+                    margin-right: calc(100% - 180px);}}}}
+    & .info:not(p) {
+        width: 100%;
+        padding: 0 20px;
+        @media screen and (max-width: 450px) {margin-top: 10vh;}
+        @media screen and (min-width: 450px) {margin-top: 8vh;}
+        @media screen and (min-width: 1050px) {margin-top: 70px;}
+        & * {padding: unset; margin: unset;}
+        @include flexbox();
+        flex-direction: column;
+        & .person {
+            margin-bottom: 50px;
+            & * {margin: unset;}
+            & h1 {
+                width: 100%;
+                color: $dark;
+                @media screen and (max-width: 450px) {font-size: 7vw;}
+                @media screen and (min-width: 450px) {font-size: 4.5vw;}
+                text-align: center;
+                @media screen and (min-width: 1050px) {
+                    text-align: left;
+                    @include f20();}}
+            & #wrapper1 {
+                width: 100%;
+                & .position {
+                    width: 100%;
+                    width: auto;
+                    @include flexbox();
+                    flex-direction: row;
+                    color: $dark-mono;
+                    justify-content: center;
+                    @media screen and (max-width: 450px) {font-size: 5vw;}
+                    @media screen and (min-width: 450px) {font-size: 3vw;}
+                    @media screen and (min-width: 1050px) {
+                        justify-content: flex-start;
+                        @include f16();}}
+
+                & span {
+                    @media screen and (max-width: 450px) {height: 8vw; width: 5vw;}
+                    @media screen and (min-width: 450px) {height: 4vw; width: 5vw;}
+                    @media screen and (min-width: 1050px) {height: 20pt; width: 16pt;}
+                    @include flexbox();
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    & svg {
+                        width: 100%;
+                        height: 100%;}}}}
+        & p.info {
+            color: $dark;
+            & em {font-weight: 600;}
+            &.last-active {font-size: 11pt;}}
+        & .about {
+            & h1 {
+                @media screen and (max-width: 1050px) {text-align: center;}
+                @media screen and (min-width: 1050px) {text-align: left;}
+                color: $dark;
+                padding-bottom: 20px;}
+            margin: 50px 0;
+            @media screen and (max-width: 1050px) {padding: 4vw;}
+            @media screen and (min-width: 1050px) {padding: 40px;}
+            & * {margin: unset; padding: unset;}
+            text-align: left;
+            background-color: $gray;
+            border-radius: 20px;
+            font-weight: 500;}
+        & .certification {
+            width: 100%;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            color: $dark;
+            transition: .5s;
+            &:hover {color: $dark-mono;}
+            @media screen and (max-width: 450px) {font-size: 6vw;}
+            @media screen and (min-width: 450px) {font-size: 3.5vw;}
+            @media screen and (min-width: 1050px) {@include f20();}}}    
+    & .projects {
+        @include flexbox();
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 50px 0;
+        @media screen and (max-width: 1050px) {padding: 0 3vw;}
+        @media screen and (min-width: 1050px) {padding: 0 50px;}
+        & * {margin: unset; padding: unset;}
+        color: $dark;
+        width: 100%;
+        & h1, p.projects {width: 100%; text-align: center;}
+        & p.projects {
+            font-weight: 500;
+            @media screen and (max-width: 450px) {font-size: 5vw;}
+            @media screen and (min-width: 450px) {font-size: 2.5vw;}
+            @media screen and (min-width: 1050px) {@include f12();}}
+        & .project {
+            overflow: hidden;
+            cursor: pointer;
+            @media screen and (max-width: 450px) {
+                width: 90%;
+                height: 450px;
+                margin: 20px 5vw;}
+            @media screen and (min-width: 450px) {
+                width: 96%;
+                height: 350px;
+                margin: 20px 2%;}
+            @media screen and (min-width: 1050px) {
+                width: 100%;
+                height: 350px;
+                margin: 20px 0;
+                &:hover .text-wrapper {top: 50%;}}
+                & * {margin: unset;}
+                & .text-wrapper {
+                    width: 100%;
+                    background-color: rgba($color: $dark, $alpha: .8);
+                    overflow: hidden;
+                    padding: 10px 15px;
+                    position: relative;
+                    @include flexbox();
+                    flex-direction: column;
+                    justify-content: center;
+                    transition: .8s;
+                    @media screen and (max-width: 450px) {
+                        top: 70%;
+                        height: 30%;}
+                    @media screen and (min-width: 450px) {
+                        top: 60%;
+                        height: 40%;}
+                    @media screen and (min-width: 1050px) {
+                        top: 100%;
+                        height: 50%;}
+                    & * {padding: unset; margin: unset;}
+                    & p {
+                        @media screen and (max-width: 450px) {font-size: 4vw;}
+                        @media screen and (min-width: 450px) {font-size: 2vw;}
+                        @media screen and (min-width: 1050px) {@include f12();}
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        line-height: 20px;
+                        max-height: 80px;
+                        -webkit-line-clamp: 4;
+                        -webkit-box-orient: vertical;}}
+                & a {
+                    color: white;
+                    display: block;
+                    height: 100%;
+                    width: 100%;}}
+        & .no-projects {
+            color: $dark;
+            text-align: center;
+            width: 100%;
+            margin: 30px 0;
+            font-weight: 500;}}
+
+}

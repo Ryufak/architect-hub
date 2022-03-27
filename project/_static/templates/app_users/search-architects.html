@@ -17,31 +17,42 @@
 {% endblock addons %}
 
 {% block content %}
-<section class="en">
+<section class="en" >
 
     <form id="form" method="post" action="{% url 'architects' %}">   {% csrf_token %}
-        <input id="search" type="search" name="search" placeholder="Search">
-        <input type="submit" value="search" id="input-submit">
+        <div class="input">
+            <input id="search" type="search" name="search" placeholder="Search">
+            <div class="svg" onclick="form_reset()">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
+                    <g><path d="m495,466.1l-119.2-119.2c29.1-35.5 46.5-80.8 46.5-130.3 0-113.5-92.1-205.6-205.6-205.6-113.6,0-205.7,92.1-205.7,205.7s92.1,205.7 205.7,205.7c49.4,0 94.8-17.4 130.3-46.5l119.1,119.1c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9zm-443.2-249.4c-1.42109e-14-91 73.8-164.8 164.8-164.8 91,0 164.8,73.8 164.8,164.8s-73.8,164.8-164.8,164.8c-91,0-164.8-73.8-164.8-164.8z"/></g>
+                </svg>
+            </div> 
+        </div>
     </form>
 
 
 {% if search %}
-<div onclick="form_reset()">{{ search }}</div>
+<div class="search-wrapper">
+    <div onclick="form_reset()">{{ search }}</div>
+</div>
 {% endif %}
 
+<div class="a-wrapper">
 {% for object in objects %}
-<div style="border: 2px solid black; margin: 20px;">
-    <img style="height: 100px;" src="../{{ object.image_profile }}">
-    <p>Name:    {{object.first_name}}  {{object.last_name}}</p>
-    <p>Country:     {{object.country}}</p>
-    <p>City:        {{object.city}}</p>
-    <a href="{% url 'architect-page' id=object.username %}">link</a>
+<div class="architect">
+<a href="{% url 'architect-page' id=object.username %}">
+    <img src="../{{ object.image_profile }}">
+    <h1>{{object.first_name}}  {{object.last_name}}</h1>
+    <p>{{object.country}}, {{object.city}}</p>
+</a>
 </div>
 {% endfor %}
 
 {% if not objects %}
-<p>Nothing found</p>
+<p class="nothing">Nothing found</p>
 {% endif %}
+</div>
+
 
 
 

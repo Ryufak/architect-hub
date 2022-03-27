@@ -1,0 +1,24 @@
+{% extends 'BASE.html' %}
+{% load static %}
+
+{% block title %}
+<title>Server error</title>
+{% endblock title %}
+
+
+{% block description %}
+<meta name="description" content="Description">
+{% endblock description %}
+
+
+{% block addons %}
+<link rel="stylesheet" href="{% static 'error.css' %}">
+{% endblock addons %}
+
+{% block content %}
+<section class="en">
+    <h1>Custom 500 error</h1>
+</section>
+
+
+{% endblock %}

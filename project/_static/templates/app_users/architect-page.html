@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>Search</title>
+<title>{{ architect.first_name }} {{ architect.last_name }}</title>
 {% endblock title %}
 
 
@@ -12,44 +12,72 @@
 
 
 {% block addons %}
-<script src="{% static 'search-architects.js' %}"></script>
-<link rel="stylesheet" href="{% static 'search-architects.css' %}">
+<link rel="stylesheet" href="{% static 'architects-page.css' %}">
 {% endblock addons %}
 
 {% block content %}
 <section class="en" style="display: flexbox; flex-direction: column;">
 
 <div class="head">
-    <img src="../{{ architect.image_cover }}">
-    <img src="../{{ architect.image_profile }}">
-</div>
-<h1>{{ architect.first_name }} {{ architect.last_name }}</h1>
-
-<p>{{ architect.email }}</p>
-<p>{{ architect.date_joined }}</p>
-
-{% if architect.is_validated %}
-<span>Checkmark</span>
-{% endif %}
-
-<div>
-    <p>{{ architect.country }}</p>
-    <p>{{ architect.city }}</p>
+    <div class="image cover-photo">
+        <img src="../{{ architect.image_cover }}?v={{ user.last_login }}">
+    </div>
+    <div class="image profile-picture">
+        <img src="../{{ architect.image_profile }}?v={{ user.last_login }}">
+    </div>
 </div>
 
-<p>{{ architect.about }}</p>
+<div class="info">
 
-<a target="_blank" href="{{ architect.certification }}">Certification</a>
+    <div class="person">
+        <h1>{{ architect.first_name }} {{ architect.last_name }}</h1>
+        <div id="wrapper1">
+            <p class="position">Architect
+            {% if architect.is_validated %}
+                <span><svg viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1" fill-rule="evenodd">
+                    <g fill="#008000" fill-rule="nonzero">
+                <path d="M24,4 C35.045695,4 44,12.954305 44,24 C44,35.045695 35.045695,44 24,44 C12.954305,44 4,35.045695 4,24 C4,12.954305 12.954305,4 24,4 Z M32.6338835,17.6161165 C32.1782718,17.1605048 31.4584514,17.1301307 30.9676119,17.5249942 L30.8661165,17.6161165 L20.75,27.732233 L17.1338835,24.1161165 C16.6457281,23.6279612 15.8542719,23.6279612 15.3661165,24.1161165 C14.9105048,24.5717282 14.8801307,25.2915486 15.2749942,25.7823881 L15.3661165,25.8838835 L19.8661165,30.3838835 C20.3217282,30.8394952 21.0415486,30.8698693 21.5323881,30.4750058 L21.6338835,30.3838835 L32.6338835,19.3838835 C33.1220388,18.8957281 33.1220388,18.1042719 32.6338835,17.6161165 Z"></path></g></g>
+                </svg></span>
+            {% endif %}</p> 
+            
+        </div>     
+    </div>
 
 
+    <p class="info">Email: <em>{{ architect.email }}</em></p>
+    <p class="info">Based in: <em>{{ architect.country }}, {{ architect.city }}</em></p>
+    <p class="info last-active">Last active: {{ architect.last_login }}.</p>
+    
+
+    <div class="about">
+        <h1>About me</h1>
+        <p class="info">{{ architect.about }}</p>
+    </div>
+    
+    <a class="certification" target="_blank" href="{{ architect.certification }}">Certification</a>    
+
+</div>
+
+<div class="projects">
+    <h1>Projects:</h1>
 {% if projects %}
     {% for project in projects %}
-        <p>{{ project.title }}</p>
-        <a target="_blank" href="{% url 'project-page' id=project.ref_number %}">Project Link</a>
+        <div class="project" style="background: url(../{{project.image_thumbnail}}) center center no-repeat; background-size: cover;">
+            <a target="_blank" href="{% url 'project-page' id=project.ref_number %}?v={{ user.last_login }}">
+                <div class="text-wrapper">
+                    <h1>{{project.title}}</h1>
+                    <p>{{project.description}}</p>
+                </div>
+            </a>
+        </div>
     {% endfor %}
 {% else %}
-<p>The user hasn't uploaded any projects yet</p>
+    <p class="no-projects">{{ architect.first_name }} {{ architect.last_name }} hasn't uploaded any projects yet</p>
 {% endif %}
+
+</div>
+    
 
 
 
